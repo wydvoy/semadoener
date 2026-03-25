@@ -807,7 +807,8 @@
             // Duplicate the marquee content for seamless infinite scrolling if screen is wide
             const marqueeContent = document.querySelector('.marquee-content');
             if(marqueeContent) {
-                 marqueeContent.innerHTML += "&nbsp;" + marqueeContent.innerHTML;
+                const content = marqueeContent.textContent;
+                marqueeContent.textContent = content + "\u00A0" + content;
             }
         });
     </script>
