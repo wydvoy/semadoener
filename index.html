@@ -1,9 +1,64 @@
 <!DOCTYPE html>
-<html class="dark" lang="de">
+<html class="dark bg-background" lang="de">
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Sema Döner</title>
+    <title>Sema Döner by Musty — Frisch gegrillter Döner in Herdorf | Bestellen</title>
+    <meta name="description" content="Döner, Dürüm & Chili Cheese Kreationen in Herdorf. Täglich frisch gegrillt, Halal zertifiziert. Jetzt anrufen: 02744 931678" />
+    <meta property="og:title" content="Sema Döner by Musty — Frisch gegrillter Döner in Herdorf | Bestellen" />
+    <meta property="og:description" content="Döner, Dürüm & Chili Cheese Kreationen in Herdorf. Täglich frisch gegrillt, Halal zertifiziert. Jetzt anrufen: 02744 931678" />
+    <meta property="og:image" content="https://lh3.googleusercontent.com/aida-public/AB6AXuDE9o7Qi-LXhWZq7vwCIFXbEgTsv2chkEpdPE0eWWmKm1tBLOB2q9l1sooCIAf9khXIxXD7swkAEI4754De5XXuop6NhIhG05YROq_ykDeW5qGC5fRcA9x0w7mkJV73fUaxtyEy6mZ70Y1Wv6rcVxB8WXHXvAelRmk1JKDUymEB3d9sMo03tOFAZipTzwxcXdVB5s0mnQCoPK41u09ET_QYm-8DHnWGtpFsk-limSBVyXzqA-0SpQ-ilIB4GMCVcBln-gNSFJS5hN4" />
+    <meta property="og:type" content="restaurant.restaurant" />
+    <meta property="og:locale" content="de_DE" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Sema Döner by Musty",
+      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDE9o7Qi-LXhWZq7vwCIFXbEgTsv2chkEpdPE0eWWmKm1tBLOB2q9l1sooCIAf9khXIxXD7swkAEI4754De5XXuop6NhIhG05YROq_ykDeW5qGC5fRcA9x0w7mkJV73fUaxtyEy6mZ70Y1Wv6rcVxB8WXHXvAelRmk1JKDUymEB3d9sMo03tOFAZipTzwxcXdVB5s0mnQCoPK41u09ET_QYm-8DHnWGtpFsk-limSBVyXzqA-0SpQ-ilIB4GMCVcBln-gNSFJS5hN4",
+      "@id": "",
+      "url": "",
+      "telephone": "+492744931678",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Hauptstraße 63",
+        "addressLocality": "Herdorf",
+        "postalCode": "57562",
+        "addressCountry": "DE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 50.7721,
+        "longitude": 7.9545
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+          "opens": "11:00",
+          "closes": "22:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Friday", "Saturday"],
+          "opens": "11:00",
+          "closes": "23:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Sunday",
+          "opens": "12:00",
+          "closes": "22:00"
+        }
+      ],
+      "servesCuisine": "Türkisch",
+      "priceRange": "€",
+      "hasMenu": "#menu"
+    }
+    </script>
+
+    <link rel="preload" as="image" href="https://lh3.googleusercontent.com/aida-public/AB6AXuDE9o7Qi-LXhWZq7vwCIFXbEgTsv2chkEpdPE0eWWmKm1tBLOB2q9l1sooCIAf9khXIxXD7swkAEI4754De5XXuop6NhIhG05YROq_ykDeW5qGC5fRcA9x0w7mkJV73fUaxtyEy6mZ70Y1Wv6rcVxB8WXHXvAelRmk1JKDUymEB3d9sMo03tOFAZipTzwxcXdVB5s0mnQCoPK41u09ET_QYm-8DHnWGtpFsk-limSBVyXzqA-0SpQ-ilIB4GMCVcBln-gNSFJS5hN4"/>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -38,8 +93,15 @@
     <style>
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 4rem;
         }
         .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+
+        /* Focus styles */
+        *:focus-visible {
+            outline: 2px solid #ff9159;
+            outline-offset: 2px;
+        }
         .marquee-container { overflow: hidden; white-space: nowrap; }
         .marquee-content { display: inline-block; animation: marquee 20s linear infinite; }
         @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
@@ -56,44 +118,107 @@
             opacity: 1;
             transform: none;
         }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .fade-in-section {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
     </style>
 </head>
-<body class="font-body selection:bg-primary selection:text-on-primary-fixed bg-background text-on-surface">
+<body class="font-body selection:bg-primary selection:text-on-primary-fixed bg-background text-on-surface max-w-[1440px] mx-auto relative shadow-2xl">
+    <a href="#menu" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:p-4 focus:bg-primary focus:text-on-primary-fixed focus:font-headline focus:font-bold focus:outline-none focus:ring-2 focus:ring-white">Zum Menü springen</a>
 
     <!-- Header -->
-    <header class="fixed top-0 w-full z-50 bg-[#0e0e0e]/70 backdrop-blur-xl flex justify-between items-center px-6 h-16 shadow-[0_40px_40px_-15px_rgba(255,145,89,0.08)]">
+    <header class="fixed top-0 w-full max-w-[1440px] mx-auto right-0 left-0 z-50 bg-[#0e0e0e]/70 backdrop-blur-xl flex justify-between items-center px-6 h-16 shadow-[0_40px_40px_-15px_rgba(255,145,89,0.08)]">
         <div class="flex items-center gap-4">
-            <span class="material-symbols-outlined text-primary md:hidden">menu</span>
+            <button id="mobile-menu-btn" aria-label="Menü öffnen" class="p-2 -ml-2 text-primary md:hidden focus:outline-none">
+                <span class="material-symbols-outlined pointer-events-none">menu</span>
+            </button>
             <span class="text-xl font-black text-primary tracking-tighter font-headline uppercase">SEMA DÖNER</span>
+            <!-- Open/Closed Badge -->
+            <div id="status-badge" class="hidden md:flex items-center gap-2 px-3 py-1 bg-surface-container rounded-full border border-white/10 text-xs font-bold font-headline uppercase tracking-widest ml-4 transition-colors">
+                <span class="status-dot w-2 h-2 rounded-full bg-gray-500"></span>
+                <span class="status-text text-gray-400">Lädt...</span>
+            </div>
         </div>
 
         <!-- Desktop Nav -->
-        <nav class="hidden md:flex gap-8">
-            <a href="#hero" class="font-headline font-bold text-on-surface hover:text-primary transition-colors">Start</a>
-            <a href="#menu" class="font-headline font-bold text-on-surface hover:text-primary transition-colors">Menü</a>
-            <a href="#reviews" class="font-headline font-bold text-on-surface hover:text-primary transition-colors">Vibes</a>
-            <a href="#kontakt" class="font-headline font-bold text-on-surface hover:text-primary transition-colors">Kontakt</a>
+        <nav class="hidden md:flex gap-8 items-center">
+            <a href="#hero" class="font-headline font-bold text-on-surface hover:text-primary transition-colors py-2">Start</a>
+            <a href="#menu" class="font-headline font-bold text-on-surface hover:text-primary transition-colors py-2">Menü</a>
+            <a href="#reviews" class="font-headline font-bold text-on-surface hover:text-primary transition-colors py-2">Vibes</a>
+            <a href="#kontakt" class="font-headline font-bold text-on-surface hover:text-primary transition-colors py-2">Kontakt</a>
         </nav>
 
-        <a href="tel:02744931678" class="font-headline uppercase tracking-tighter font-bold text-primary hover:text-primary-fixed transition-colors active:scale-95 transition-transform">BESTELLEN</a>
+        <a href="tel:02744931678" class="font-headline uppercase tracking-tighter font-bold text-primary hover:text-primary-fixed transition-colors active:scale-95 transition-transform py-2">02744 931678</a>
     </header>
 
-    <!-- Hero Section -->
-    <section id="hero" class="relative h-screen w-full flex items-center justify-center overflow-hidden fade-in-section is-visible">
-        <div class="absolute inset-0 z-0">
-            <img class="w-full h-full object-cover opacity-60 grayscale-[20%] contrast-125" alt="Close-up of a loaded döner kebab" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDE9o7Qi-LXhWZq7vwCIFXbEgTsv2chkEpdPE0eWWmKm1tBLOB2q9l1sooCIAf9khXIxXD7swkAEI4754De5XXuop6NhIhG05YROq_ykDeW5qGC5fRcA9x0w7mkJV73fUaxtyEy6mZ70Y1Wv6rcVxB8WXHXvAelRmk1JKDUymEB3d9sMo03tOFAZipTzwxcXdVB5s0mnQCoPK41u09ET_QYm-8DHnWGtpFsk-limSBVyXzqA-0SpQ-ilIB4GMCVcBln-gNSFJS5hN4"/>
-            <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40"></div>
+    <!-- Mobile Slide-in Menu -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[60] opacity-0 pointer-events-none transition-opacity duration-300"></div>
+    <div id="mobile-menu" class="fixed top-0 left-0 bottom-0 w-[80%] max-w-sm bg-surface z-[70] transform -translate-x-full transition-transform duration-300 flex flex-col border-r border-white/10 shadow-2xl">
+        <div class="flex justify-between items-center p-6 border-b border-white/10">
+            <span class="text-xl font-black text-primary tracking-tighter font-headline uppercase">SEMA DÖNER</span>
+            <button id="mobile-menu-close" aria-label="Menü schließen" class="p-2 -mr-2 text-primary focus:outline-none">
+                <span class="material-symbols-outlined pointer-events-none">close</span>
+            </button>
         </div>
-        <div class="relative z-10 text-center px-4 w-full max-w-6xl">
+
+        <!-- Mobile Open/Closed Badge -->
+        <div class="p-6 border-b border-white/5">
+            <div id="mobile-status-badge" class="inline-flex items-center gap-2 px-4 py-2 bg-surface-container rounded-full border border-white/10 text-xs font-bold font-headline uppercase tracking-widest">
+                <span class="status-dot w-2 h-2 rounded-full bg-gray-500"></span>
+                <span class="status-text text-gray-400">Lädt...</span>
+            </div>
+        </div>
+
+        <nav class="flex flex-col p-6 gap-6 flex-grow">
+            <a href="#hero" class="mobile-nav-link font-headline font-bold text-2xl text-on-surface hover:text-primary transition-colors py-2">Start</a>
+            <a href="#menu" class="mobile-nav-link font-headline font-bold text-2xl text-on-surface hover:text-primary transition-colors py-2">Menü</a>
+            <a href="#reviews" class="mobile-nav-link font-headline font-bold text-2xl text-on-surface hover:text-primary transition-colors py-2">Vibes</a>
+            <a href="#kontakt" class="mobile-nav-link font-headline font-bold text-2xl text-on-surface hover:text-primary transition-colors py-2">Kontakt</a>
+        </nav>
+        <div class="p-6 border-t border-white/10">
+            <a href="tel:02744931678" class="flex items-center justify-center gap-3 w-full py-4 bg-primary text-on-primary-fixed font-headline font-extrabold text-xl tracking-widest uppercase hover:bg-primary-fixed transition-all active:scale-95 text-center">
+                <span class="material-symbols-outlined">call</span>
+                ANRUFEN
+            </a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative h-screen w-full flex flex-col xl:flex-row overflow-hidden fade-in-section is-visible" aria-label="Hero Sektion">
+        <div class="absolute inset-0 xl:relative xl:w-[60%] xl:h-full z-0">
+            <img fetchpriority="high" class="w-full h-full object-cover opacity-60 xl:opacity-100 grayscale-[20%] xl:grayscale-0 contrast-125" alt="Close-up of a loaded döner kebab" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDE9o7Qi-LXhWZq7vwCIFXbEgTsv2chkEpdPE0eWWmKm1tBLOB2q9l1sooCIAf9khXIxXD7swkAEI4754De5XXuop6NhIhG05YROq_ykDeW5qGC5fRcA9x0w7mkJV73fUaxtyEy6mZ70Y1Wv6rcVxB8WXHXvAelRmk1JKDUymEB3d9sMo03tOFAZipTzwxcXdVB5s0mnQCoPK41u09ET_QYm-8DHnWGtpFsk-limSBVyXzqA-0SpQ-ilIB4GMCVcBln-gNSFJS5hN4"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40 xl:hidden"></div>
+        </div>
+        <div class="relative z-10 flex flex-col justify-center items-center xl:items-start text-center xl:text-left px-4 xl:px-12 w-full xl:w-[40%] h-full bg-background/50 xl:bg-transparent">
+            <div class="mb-8 flex items-center gap-2 px-4 py-2 bg-surface-container rounded-full border border-white/10 hover:border-white/30 transition-colors cursor-pointer" onclick="window.open('https://google.com', '_blank')">
+                <span class="font-headline font-bold text-white text-sm">4,6</span>
+                <span class="text-primary text-sm">★</span>
+                <span class="font-body text-gray-400 text-xs tracking-tight">567 Google Reviews</span>
+            </div>
             <p class="font-headline font-bold text-primary tracking-[0.3em] uppercase mb-4 text-xs md:text-base">Food Factory by Musty</p>
-            <h1 class="font-headline font-black text-6xl md:text-[10rem] leading-[0.85] tracking-tighter uppercase break-words">
+            <h1 class="font-headline font-black text-6xl md:text-[8rem] xl:text-[7rem] leading-[0.85] tracking-tighter uppercase break-words">
                 SEMA<br/><span class="text-primary">DÖNER</span>
             </h1>
+            <div class="mt-12 w-full max-w-md hidden xl:block">
+                <a href="tel:02744931678" class="w-full py-6 bg-primary text-on-primary-fixed font-headline font-extrabold text-xl tracking-widest uppercase hover:bg-gradient-to-r hover:from-[#ff9159] hover:to-[#ff7a2f] hover:scale-[1.03] transition-all active:scale-95 shadow-2xl text-center block">
+                    BESTELLEN
+                </a>
+            </div>
         </div>
 
         <!-- Sticky Floating CTA -->
-        <div class="absolute bottom-24 md:bottom-12 left-0 w-full flex justify-center z-20 px-6">
-            <a href="tel:02744931678" class="w-full max-w-md py-6 bg-primary text-on-primary-fixed font-headline font-extrabold text-xl tracking-widest uppercase hover:bg-primary-fixed transition-all active:scale-95 shadow-2xl text-center block rounded-md">
+        <div class="absolute bottom-24 md:bottom-12 left-0 w-full flex justify-center z-20 px-6 xl:hidden">
+            <a href="tel:02744931678" class="w-full max-w-md py-6 bg-primary text-on-primary-fixed font-headline font-extrabold text-xl tracking-widest uppercase hover:bg-gradient-to-r hover:from-[#ff9159] hover:to-[#ff7a2f] hover:scale-[1.03] transition-all active:scale-95 shadow-2xl text-center block">
                 BESTELLEN
             </a>
         </div>
@@ -107,7 +232,7 @@
     </div>
 
     <!-- Menu Section -->
-    <section id="menu" class="py-24 px-6 bg-surface fade-in-section">
+    <section id="menu" class="py-24 px-6 bg-surface fade-in-section" aria-label="Menü Sektion">
         <div class="max-w-7xl mx-auto">
             <h2 class="font-headline font-black text-6xl md:text-9xl tracking-tighter uppercase mb-12 leading-none">
                 WAS WILLST<br/><span class="text-primary">DU?</span>
@@ -124,11 +249,11 @@
             </div>
 
             <!-- Menu Grid -->
-            <div class="grid md:grid-cols-2 gap-12" id="menu-grid">
+            <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-12" id="menu-grid">
                 <!-- Menu Item 1 -->
                 <div class="menu-item flex bg-surface-container group cursor-pointer hover:-translate-y-2 hover:shadow-2xl hover:bg-surface-container-high transition-all duration-300" data-category="doener">
                     <div class="w-32 h-32 md:w-48 md:h-48 flex-shrink-0">
-                        <img class="w-full h-full object-cover" alt="Döner sandwich" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsB6-C4rF3VZtdZYXhN9DFGTHis2uiBkxYVyvyXGDtiGZ8krleSZ8cw9DgDb286x85QV_si2oc-Zi6Szmac7VCJQTgLx7hjiiR-lcEL9ISyYOB_3U6ockB41Z6eSCPeKTTGb8tXtF2RwS0xgWlezjlYtpCTvktNGjwQk874IWejwxXqeRSIvWy8h5cAOHaxRtWh72He-7ICip1DvhDkfbcddoKp__nn_8z0g3TystSsDSwTKyKIOtaMlzbyBNAlC7QZFZjsefzJB8"/>
+                        <img loading="lazy" class="w-full h-full object-cover" alt="Döner sandwich" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsB6-C4rF3VZtdZYXhN9DFGTHis2uiBkxYVyvyXGDtiGZ8krleSZ8cw9DgDb286x85QV_si2oc-Zi6Szmac7VCJQTgLx7hjiiR-lcEL9ISyYOB_3U6ockB41Z6eSCPeKTTGb8tXtF2RwS0xgWlezjlYtpCTvktNGjwQk874IWejwxXqeRSIvWy8h5cAOHaxRtWh72He-7ICip1DvhDkfbcddoKp__nn_8z0g3TystSsDSwTKyKIOtaMlzbyBNAlC7QZFZjsefzJB8"/>
                     </div>
                     <div class="p-6 flex flex-col justify-between w-full">
                         <div>
@@ -139,10 +264,36 @@
                     </div>
                 </div>
 
+                <!-- Additional Doener Items -->
+                <div class="menu-item flex bg-surface-container group cursor-pointer hover:-translate-y-2 hover:shadow-2xl hover:bg-surface-container-high transition-all duration-300" data-category="doener">
+                    <div class="w-32 h-32 md:w-48 md:h-48 flex-shrink-0 bg-surface-container-high flex items-center justify-center">
+                        <span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors">kebab_dining</span>
+                    </div>
+                    <div class="p-6 flex flex-col justify-between w-full">
+                        <div>
+                            <h3 class="font-headline font-bold text-2xl uppercase tracking-tighter group-hover:text-primary transition-colors">Sema Teller</h3>
+                            <p class="text-on-surface-variant font-body text-sm mt-2 line-clamp-2">Große Portion Fleisch, Pommes oder Reis, Beilagensalat und Tzatziki.</p>
+                        </div>
+                        <span class="font-headline font-black text-2xl text-primary mt-4">11,00 €</span>
+                    </div>
+                </div>
+                <div class="menu-item flex bg-surface-container group cursor-pointer hover:-translate-y-2 hover:shadow-2xl hover:bg-surface-container-high transition-all duration-300" data-category="doener">
+                    <div class="w-32 h-32 md:w-48 md:h-48 flex-shrink-0 bg-surface-container-high flex items-center justify-center">
+                        <span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors">kebab_dining</span>
+                    </div>
+                    <div class="p-6 flex flex-col justify-between w-full">
+                        <div>
+                            <h3 class="font-headline font-bold text-2xl uppercase tracking-tighter group-hover:text-primary transition-colors">Döner Box</h3>
+                            <p class="text-on-surface-variant font-body text-sm mt-2 line-clamp-2">Fleisch nach Wahl, Pommes und Sauce in der praktischen Box.</p>
+                        </div>
+                        <span class="font-headline font-black text-2xl text-primary mt-4">6,50 €</span>
+                    </div>
+                </div>
+
                 <!-- Menu Item 2 -->
                 <div class="menu-item flex bg-surface-container group cursor-pointer hover:-translate-y-2 hover:shadow-2xl hover:bg-surface-container-high transition-all duration-300" data-category="duerum">
                     <div class="w-32 h-32 md:w-48 md:h-48 flex-shrink-0">
-                        <img class="w-full h-full object-cover" alt="Large Dürüm wrap" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCntW-qZHCa2FLOZ_wLdK-TtcOBd9TBau0lIYm_DWSo0uJLOUHNgAlyfqLRt-PhXdjmrXBXYoy3xpnmZIncvBbnm7Ov3T0yXFgHWmuf-4NHCAhJlo-Tujg3oUUZFgoXPFeStOxvIP3uc4DBVpmLJ8jaVuVuIW8zaV-YL0otslMElXTHes-W9XOomPZM0U_N5yrZkGdmYf1xKHIJy2bPETYgaJInqmEgb0_JD29p7q8r1qXYmVkcKmFcb8xwsWNctfSED4E6k64DQe8"/>
+                        <img loading="lazy" class="w-full h-full object-cover" alt="Large Dürüm wrap" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCntW-qZHCa2FLOZ_wLdK-TtcOBd9TBau0lIYm_DWSo0uJLOUHNgAlyfqLRt-PhXdjmrXBXYoy3xpnmZIncvBbnm7Ov3T0yXFgHWmuf-4NHCAhJlo-Tujg3oUUZFgoXPFeStOxvIP3uc4DBVpmLJ8jaVuVuIW8zaV-YL0otslMElXTHes-W9XOomPZM0U_N5yrZkGdmYf1xKHIJy2bPETYgaJInqmEgb0_JD29p7q8r1qXYmVkcKmFcb8xwsWNctfSED4E6k64DQe8"/>
                     </div>
                     <div class="p-6 flex flex-col justify-between w-full">
                         <div>
@@ -153,10 +304,24 @@
                     </div>
                 </div>
 
+                <!-- Additional Duerum Item -->
+                <div class="menu-item flex bg-surface-container group cursor-pointer hover:-translate-y-2 hover:shadow-2xl hover:bg-surface-container-high transition-all duration-300" data-category="duerum">
+                    <div class="w-32 h-32 md:w-48 md:h-48 flex-shrink-0 bg-surface-container-high flex items-center justify-center">
+                        <span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors">bakery_dining</span>
+                    </div>
+                    <div class="p-6 flex flex-col justify-between w-full">
+                        <div>
+                            <h3 class="font-headline font-bold text-2xl uppercase tracking-tighter group-hover:text-primary transition-colors">Lahmacun</h3>
+                            <p class="text-on-surface-variant font-body text-sm mt-2 line-clamp-2">Türkische Pizza mit Fleisch, Salat und Spezialsauce gerollt.</p>
+                        </div>
+                        <span class="font-headline font-black text-2xl text-primary mt-4">8,00 €</span>
+                    </div>
+                </div>
+
                 <!-- Menu Item 3 -->
                 <div class="menu-item flex bg-surface-container group cursor-pointer hover:-translate-y-2 hover:shadow-2xl hover:bg-surface-container-high transition-all duration-300" data-category="chili-cheese">
                     <div class="w-32 h-32 md:w-48 md:h-48 flex-shrink-0">
-                        <img class="w-full h-full object-cover" alt="Döner meat topped with melted chili cheese sauce" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUsOIXEYln3K9YRKr3YJJl20Mqd6R8HRMPbjXywyBRDdmDJ99UNAzOwvc-aoGcMMspJckiP6jv3UeU3oCwqX9SrzsAwp6qqQ2bSNPIUFjuhQjo5ZaBywxXcdF82Zqm8W9Y7J3r4MaJmH_pBFuZ4FnNsF224jzrIaItLfHS0nJJbTI5Smc_LVwYE7qOeXqYl1WevXvoi1i-E-TeodTmAfBZhVoafvJcSH9eYEzGOy2i0_L5PNrryT4hJsp2bbCr09CTDAp_Z4zEZ_0"/>
+                        <img loading="lazy" class="w-full h-full object-cover" alt="Döner meat topped with melted chili cheese sauce" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUsOIXEYln3K9YRKr3YJJl20Mqd6R8HRMPbjXywyBRDdmDJ99UNAzOwvc-aoGcMMspJckiP6jv3UeU3oCwqX9SrzsAwp6qqQ2bSNPIUFjuhQjo5ZaBywxXcdF82Zqm8W9Y7J3r4MaJmH_pBFuZ4FnNsF224jzrIaItLfHS0nJJbTI5Smc_LVwYE7qOeXqYl1WevXvoi1i-E-TeodTmAfBZhVoafvJcSH9eYEzGOy2i0_L5PNrryT4hJsp2bbCr09CTDAp_Z4zEZ_0"/>
                     </div>
                     <div class="p-6 flex flex-col justify-between w-full">
                         <div>
@@ -167,10 +332,24 @@
                     </div>
                 </div>
 
+                <!-- Additional Chili Cheese Item -->
+                <div class="menu-item flex bg-surface-container group cursor-pointer hover:-translate-y-2 hover:shadow-2xl hover:bg-surface-container-high transition-all duration-300" data-category="chili-cheese">
+                    <div class="w-32 h-32 md:w-48 md:h-48 flex-shrink-0 bg-surface-container-high flex items-center justify-center">
+                        <span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors">local_pizza</span>
+                    </div>
+                    <div class="p-6 flex flex-col justify-between w-full">
+                        <div>
+                            <h3 class="font-headline font-bold text-2xl uppercase tracking-tighter group-hover:text-primary transition-colors">Chili Cheese Dürüm</h3>
+                            <p class="text-on-surface-variant font-body text-sm mt-2 line-clamp-2">Dürüm gefüllt mit Fleisch, Jalapeños und flüssigem Chili Cheese.</p>
+                        </div>
+                        <span class="font-headline font-black text-2xl text-primary mt-4">9,50 €</span>
+                    </div>
+                </div>
+
                 <!-- Menu Item 4 -->
                 <div class="menu-item flex bg-surface-container group cursor-pointer hover:-translate-y-2 hover:shadow-2xl hover:bg-surface-container-high transition-all duration-300" data-category="vegetarisch">
                     <div class="w-32 h-32 md:w-48 md:h-48 flex-shrink-0">
-                        <img class="w-full h-full object-cover" alt="Falafel wrap" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0KCcf1Tp7hCjc_O5arj7GlNscs_LvVOxiMzUTY1pIaG2tzOm1X_XTnZAzNQRw90kNZwkvMOhtRIUo2E0dfzdIge1-wB_fOF-yrvJlyJB_DTTYgKP9ALS8AZ4_L4dWRhAXjv5Q5LrEi94lQckTBWvMWMWjrsOce_tLJ3ytatmEi5CuBpulstl7vXueQB527SPw-U8jOqIjZRoVYFpw8kOhJ0lNrLvVHcpG80EIgQ4oI1f7vM60e2MIWb4Kar3H8XRbw1vuPmxq1nA"/>
+                        <img loading="lazy" class="w-full h-full object-cover" alt="Falafel wrap" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0KCcf1Tp7hCjc_O5arj7GlNscs_LvVOxiMzUTY1pIaG2tzOm1X_XTnZAzNQRw90kNZwkvMOhtRIUo2E0dfzdIge1-wB_fOF-yrvJlyJB_DTTYgKP9ALS8AZ4_L4dWRhAXjv5Q5LrEi94lQckTBWvMWMWjrsOce_tLJ3ytatmEi5CuBpulstl7vXueQB527SPw-U8jOqIjZRoVYFpw8kOhJ0lNrLvVHcpG80EIgQ4oI1f7vM60e2MIWb4Kar3H8XRbw1vuPmxq1nA"/>
                     </div>
                     <div class="p-6 flex flex-col justify-between w-full">
                         <div>
@@ -178,6 +357,20 @@
                             <p class="text-on-surface-variant font-body text-sm mt-2 line-clamp-2">Hausgemachter Halloumi, Grillgemüse und Joghurt-Minz Sauce.</p>
                         </div>
                         <span class="font-headline font-black text-2xl text-primary mt-4">7,00 €</span>
+                    </div>
+                </div>
+
+                <!-- Additional Veggi Item -->
+                <div class="menu-item flex bg-surface-container group cursor-pointer hover:-translate-y-2 hover:shadow-2xl hover:bg-surface-container-high transition-all duration-300" data-category="vegetarisch">
+                    <div class="w-32 h-32 md:w-48 md:h-48 flex-shrink-0 bg-surface-container-high flex items-center justify-center">
+                        <span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors">eco</span>
+                    </div>
+                    <div class="p-6 flex flex-col justify-between w-full">
+                        <div>
+                            <h3 class="font-headline font-bold text-2xl uppercase tracking-tighter group-hover:text-primary transition-colors">Falafel Dürüm</h3>
+                            <p class="text-on-surface-variant font-body text-sm mt-2 line-clamp-2">Knusprige Falafel, frischer Salat und Hummus im dünnen Fladenbrot.</p>
+                        </div>
+                        <span class="font-headline font-black text-2xl text-primary mt-4">7,50 €</span>
                     </div>
                 </div>
 
@@ -199,33 +392,45 @@
     </section>
 
     <!-- Reviews / Street Vibes Section -->
-    <section id="reviews" class="py-24 px-6 bg-surface-container-low overflow-hidden fade-in-section">
+    <section id="reviews" class="py-24 px-6 bg-surface-container-low overflow-hidden fade-in-section" aria-label="Street Vibes Sektion">
         <div class="max-w-7xl mx-auto">
             <div class="flex justify-between items-end mb-12">
                 <h2 class="font-headline font-black text-4xl md:text-7xl tracking-tighter uppercase leading-none">
                     STREET<br/><span class="text-primary">VIBES</span>
                 </h2>
-                <a class="font-headline font-bold text-primary underline underline-offset-8 tracking-tight hover:text-white transition-colors" href="#">@SEMADOENER_MUSTY</a>
+                <a class="font-headline font-bold text-primary underline underline-offset-8 tracking-tight hover:text-white transition-colors" href="https://instagram.com/semadoener_musty" target="_blank" rel="noopener">@SEMADOENER_MUSTY</a>
             </div>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="aspect-square bg-surface-container overflow-hidden">
-                    <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 scale-105 hover:scale-100" alt="Grill meat" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAi3Tf_ZFBFyzvYLIek73-eJxMOGj5HwHuFq7O_-xZEZ3AVoIqeD90uBu00wz7AIxDzXCby_mG3d0LemfvxvJCNp2f7pcUv4NhfIyde_1exnqLQDb2_xeeX1NLw6uwb329XVjlhfWQ5vVS_nOobv3_4iQ_OE2Ya5Zm9Dxxk4rR6Gs5MksG4rQu0vLekJ4TIUSI4iG25eDwYHFKanex2N7np0Eu7TBni-y5SIZPFd_WkSjEw0hEA0ngdC73uAzPnxy5IVExVBZbq020"/>
+                <div class="aspect-square bg-surface-container overflow-hidden relative group">
+                    <img loading="lazy" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100" alt="Grill meat" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAi3Tf_ZFBFyzvYLIek73-eJxMOGj5HwHuFq7O_-xZEZ3AVoIqeD90uBu00wz7AIxDzXCby_mG3d0LemfvxvJCNp2f7pcUv4NhfIyde_1exnqLQDb2_xeeX1NLw6uwb329XVjlhfWQ5vVS_nOobv3_4iQ_OE2Ya5Zm9Dxxk4rR6Gs5MksG4rQu0vLekJ4TIUSI4iG25eDwYHFKanex2N7np0Eu7TBni-y5SIZPFd_WkSjEw0hEA0ngdC73uAzPnxy5IVExVBZbq020"/>
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center pointer-events-none">
+                        <span class="font-headline font-bold text-white text-xl md:text-2xl tracking-widest uppercase translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Fresh</span>
+                    </div>
                 </div>
-                <div class="aspect-square bg-surface-container overflow-hidden">
-                    <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 scale-105 hover:scale-100" alt="Customer eating wrap" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARevjtO7zsx_9Vf_8cUp12NHDasrtNeXOmF4fcUfac78qdJto_WUIzvm2m56YWhymKMiokUwjjWIm74-wGk84OglhjuO_D5r-E0-mQ3g3qFHT9n7uCs0MY6pH4quqlaU-k1m6mIvNKBH24_pRImciGqb9kwPHEtltegy4XsyyeHB1Qg6QHbfMy-cxpZ37YqeiANHob8LXt4SV4cL3Jlxikk9N8b5PyFC2p6ZUn3tz8CqDjoqtniiZ4ZsE9l3eqx03x16udFd0EJ3k"/>
+                <div class="aspect-square bg-surface-container overflow-hidden relative group">
+                    <img loading="lazy" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100" alt="Customer eating wrap" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARevjtO7zsx_9Vf_8cUp12NHDasrtNeXOmF4fcUfac78qdJto_WUIzvm2m56YWhymKMiokUwjjWIm74-wGk84OglhjuO_D5r-E0-mQ3g3qFHT9n7uCs0MY6pH4quqlaU-k1m6mIvNKBH24_pRImciGqb9kwPHEtltegy4XsyyeHB1Qg6QHbfMy-cxpZ37YqeiANHob8LXt4SV4cL3Jlxikk9N8b5PyFC2p6ZUn3tz8CqDjoqtniiZ4ZsE9l3eqx03x16udFd0EJ3k"/>
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center pointer-events-none">
+                        <span class="font-headline font-bold text-white text-xl md:text-2xl tracking-widest uppercase translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Vibes</span>
+                    </div>
                 </div>
-                <div class="aspect-square bg-surface-container overflow-hidden">
-                    <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 scale-105 hover:scale-100" alt="Neon signs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpB07JC663EWD5wJ1aO5Hja3sJvgz6cyhVdt92TytUKicPZIh6UIowBj2w6-nJlegnEdeWCekPulEWYHMVsZUAY3-rgAhc_96gzGZjZ1iz90IwCtQG9DtRTVVbsj1orruYpCq0ZiNey8rvGiCqPmzTpjxeN0LgcSVNnm3awE4rAyU8oxlyC3SCL9tLt-d1Drw2z7D9YX_Grk4Y36JhlfbpbgmLcYN0fWYHwl5WQkPhkFavXm6sqkW253Qv519BIzu6ScUHrsu76Z0"/>
+                <div class="aspect-square bg-surface-container overflow-hidden relative group">
+                    <img loading="lazy" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100" alt="Neon signs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpB07JC663EWD5wJ1aO5Hja3sJvgz6cyhVdt92TytUKicPZIh6UIowBj2w6-nJlegnEdeWCekPulEWYHMVsZUAY3-rgAhc_96gzGZjZ1iz90IwCtQG9DtRTVVbsj1orruYpCq0ZiNey8rvGiCqPmzTpjxeN0LgcSVNnm3awE4rAyU8oxlyC3SCL9tLt-d1Drw2z7D9YX_Grk4Y36JhlfbpbgmLcYN0fWYHwl5WQkPhkFavXm6sqkW253Qv519BIzu6ScUHrsu76Z0"/>
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center pointer-events-none">
+                        <span class="font-headline font-bold text-white text-xl md:text-2xl tracking-widest uppercase translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Night</span>
+                    </div>
                 </div>
-                <div class="aspect-square bg-surface-container overflow-hidden">
-                    <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 scale-105 hover:scale-100" alt="Salad toppings" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd0ruIHieIunHh67zRADuCPtrzMUAmOGnZ002cDOUvFT8jJAhjA5iVsrHR8zqT06-MlgORUTdrWjGYlT0goyNcxy_iaYbBPZV1-S-dvLIuUZggT1iVAreDKvCynz3EHcw2ihpuj2WvpYQzslICs6kldQB5RBfWLvgKfCIHrtRTvdxuC4giwZ4mT0a-3iQHAnox6j6m13XJ0-ftS7MFBF3_K8tOropLraM-8BXzDanH0hk7RpXqBLjiM079l-gfGSgibUudWWIAdyU"/>
+                <div class="aspect-square bg-surface-container overflow-hidden relative group">
+                    <img loading="lazy" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100" alt="Salad toppings" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd0ruIHieIunHh67zRADuCPtrzMUAmOGnZ002cDOUvFT8jJAhjA5iVsrHR8zqT06-MlgORUTdrWjGYlT0goyNcxy_iaYbBPZV1-S-dvLIuUZggT1iVAreDKvCynz3EHcw2ihpuj2WvpYQzslICs6kldQB5RBfWLvgKfCIHrtRTvdxuC4giwZ4mT0a-3iQHAnox6j6m13XJ0-ftS7MFBF3_K8tOropLraM-8BXzDanH0hk7RpXqBLjiM079l-gfGSgibUudWWIAdyU"/>
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center pointer-events-none">
+                        <span class="font-headline font-bold text-white text-xl md:text-2xl tracking-widest uppercase translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Quality</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Find Us / Kontakt Section -->
-    <section id="kontakt" class="py-24 px-6 bg-surface-container-lowest fade-in-section">
+    <section id="kontakt" class="py-24 px-6 bg-surface-container-lowest fade-in-section" aria-label="Kontakt und Standort Sektion">
         <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
             <div>
                 <h2 class="font-headline font-black text-6xl md:text-8xl tracking-tighter uppercase mb-8">
@@ -236,20 +441,24 @@
                         <p class="font-headline font-bold text-primary uppercase tracking-widest text-sm mb-2">Location</p>
                         <p class="text-3xl font-headline font-medium">Hauptstraße 63,<br/>57562 Herdorf</p>
                     </div>
-                    <div class="grid grid-cols-2 gap-8">
+                    <div class="grid grid-cols-3 gap-4">
                         <div>
-                            <p class="font-headline font-bold text-primary uppercase tracking-widest text-sm mb-2">Mo - Sa</p>
+                            <p class="font-headline font-bold text-primary uppercase tracking-widest text-sm mb-2">Mo - Do</p>
                             <p class="text-xl font-headline font-medium">11:00 - 22:00</p>
                         </div>
                         <div>
-                            <p class="font-headline font-bold text-primary uppercase tracking-widest text-sm mb-2">So &amp; Feiertag</p>
-                            <p class="text-xl font-headline font-medium">12:00 - 21:00</p>
+                            <p class="font-headline font-bold text-primary uppercase tracking-widest text-sm mb-2">Fr - Sa</p>
+                            <p class="text-xl font-headline font-medium">11:00 - 23:00</p>
+                        </div>
+                        <div>
+                            <p class="font-headline font-bold text-primary uppercase tracking-widest text-sm mb-2">So</p>
+                            <p class="text-xl font-headline font-medium">12:00 - 22:00</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="h-[400px] w-full bg-surface-container relative">
+            <div class="h-[400px] xl:h-[500px] w-full bg-surface-container relative">
                 <!-- Embedded Google Maps -->
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2530.824213601704!2d7.954546515865487!3d50.77209797951912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b97379f8c6ebf7%3A0xc4b38d3568c07e0b!2sHauptstra%C3%9Fe%2063%2C%2057562%20Herdorf!5e0!3m2!1sde!2sde!4v1700000000000!5m2!1sde!2sde"
@@ -274,34 +483,57 @@
         </div>
         <div class="space-y-2">
             <p class="text-on-surface font-headline font-bold text-xl tracking-tighter">Tel: 02744 931678</p>
-            <p class="text-gray-500 font-body text-xs tracking-tight">MADE WITH LOVE IN HERDORF © 2024 SEMA DÖNER</p>
+            <p class="text-gray-500 font-body text-xs tracking-tight">MADE WITH LOVE IN HERDORF © 2025 SEMA DÖNER</p>
         </div>
         <div class="flex gap-4">
-            <span class="material-symbols-outlined text-primary cursor-pointer hover:scale-110 transition-transform">restaurant</span>
-            <span class="material-symbols-outlined text-primary cursor-pointer hover:scale-110 transition-transform">share</span>
-            <span class="material-symbols-outlined text-primary cursor-pointer hover:scale-110 transition-transform">phone_iphone</span>
+            <a href="https://instagram.com/semadoener_musty" target="_blank" rel="noopener" aria-label="Instagram" class="text-primary hover:scale-110 transition-transform">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
+                </svg>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook" class="text-primary hover:scale-110 transition-transform">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+                </svg>
+            </a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener" aria-label="TikTok" class="text-primary hover:scale-110 transition-transform">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                </svg>
+            </a>
         </div>
     </footer>
 
     <!-- BottomNavBar (Mobile only) -->
-    <nav class="md:hidden fixed bottom-0 w-full z-50 bg-[#0e0e0e]/70 backdrop-blur-xl flex justify-around items-center h-20 pb-safe w-full border-t border-white/5">
-        <a href="#menu" class="flex flex-col items-center justify-center text-gray-500 hover:text-primary active:scale-90 transition-all duration-200">
+    <nav id="bottom-nav" class="md:hidden fixed bottom-0 w-full max-w-[1440px] mx-auto right-0 left-0 z-40 bg-[#0e0e0e]/70 backdrop-blur-xl flex justify-around items-center h-20 pb-safe border-t border-white/5 translate-y-full transition-transform duration-300">
+        <a href="#menu" class="flex flex-col items-center justify-center w-full h-full text-gray-500 hover:text-primary active:scale-90 transition-all duration-200 min-h-[44px] min-w-[44px]">
             <span class="material-symbols-outlined">restaurant_menu</span>
             <span class="font-body text-[10px] uppercase font-bold tracking-widest mt-1">MENU</span>
         </a>
-        <a href="#hero" class="flex flex-col items-center justify-center text-primary scale-110 active:scale-90 transition-all duration-200">
-            <span class="material-symbols-outlined">home</span>
-            <span class="font-body text-[10px] uppercase font-bold tracking-widest mt-1">START</span>
+        <a href="tel:02744931678" class="flex flex-col items-center justify-center w-full h-full text-primary scale-110 active:scale-90 transition-all duration-200 min-h-[44px] min-w-[44px]">
+            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-on-primary-fixed shadow-lg -translate-y-4 border-4 border-background">
+                <span class="material-symbols-outlined text-2xl">call</span>
+            </div>
+            <span class="font-body text-[10px] uppercase font-bold tracking-widest -mt-2">ANRUFEN</span>
         </a>
-        <a href="#kontakt" class="flex flex-col items-center justify-center text-gray-500 hover:text-primary active:scale-90 transition-all duration-200">
+        <a href="#kontakt" class="flex flex-col items-center justify-center w-full h-full text-gray-500 hover:text-primary active:scale-90 transition-all duration-200 min-h-[44px] min-w-[44px]">
             <span class="material-symbols-outlined">location_on</span>
             <span class="font-body text-[10px] uppercase font-bold tracking-widest mt-1">LOKAL</span>
         </a>
-        <a href="#reviews" class="flex flex-col items-center justify-center text-gray-500 hover:text-primary active:scale-90 transition-all duration-200">
-            <span class="material-symbols-outlined">photo_camera</span>
-            <span class="font-body text-[10px] uppercase font-bold tracking-widest mt-1">VIBES</span>
+        <a href="https://wa.me/492744931678" target="_blank" rel="noopener" aria-label="Chat auf WhatsApp" class="flex flex-col items-center justify-center w-full h-full text-[#25D366] hover:text-[#25D366] active:scale-90 transition-all duration-200 min-h-[44px] min-w-[44px]">
+            <svg class="w-6 h-6 mb-1" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            </svg>
+            <span class="font-body text-[10px] uppercase font-bold tracking-widest mt-1">CHAT</span>
         </a>
     </nav>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/492744931678" target="_blank" rel="noopener" aria-label="Chat auf WhatsApp" class="fixed bottom-8 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-[0_10px_20px_rgba(37,211,102,0.3)] hover:scale-110 transition-transform hidden md:flex items-center justify-center group">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+    </a>
 
     <!-- Scripts for Logic and Animations -->
     <script>
@@ -332,6 +564,7 @@
             // --- 2. Menu Filtering Logic ---
             const tabs = document.querySelectorAll('.menu-tab');
             const items = document.querySelectorAll('.menu-item');
+            const menuGrid = document.getElementById('menu-grid');
 
             tabs.forEach(tab => {
                 tab.addEventListener('click', () => {
@@ -345,19 +578,231 @@
 
                     const filterValue = tab.getAttribute('data-filter');
 
-                    // Show/hide menu items
+                    // Fade out current items
                     items.forEach(item => {
-                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                            item.style.display = 'flex';
-                            // small animation trick
-                            item.style.opacity = '0';
-                            setTimeout(() => { item.style.opacity = '1'; }, 10);
-                        } else {
-                            item.style.display = 'none';
-                        }
+                        item.style.opacity = '0';
+                        item.style.transform = 'translateY(10px)';
                     });
+
+                    setTimeout(() => {
+                        let visibleCount = 0;
+                        items.forEach((item) => {
+                            if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                                item.style.display = 'flex';
+                                // Staggered fade-in
+                                setTimeout(() => {
+                                    item.style.opacity = '1';
+                                    item.style.transform = 'translateY(0)';
+                                }, visibleCount * 80);
+                                visibleCount++;
+                            } else {
+                                item.style.display = 'none';
+                            }
+                        });
+                    }, 200);
                 });
             });
+
+            // Initial stagger for menu items on page load
+            const menuObserver = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        let delay = 0;
+                        items.forEach((item) => {
+                            if (item.style.display !== 'none') {
+                                setTimeout(() => {
+                                    item.style.opacity = '1';
+                                    item.style.transform = 'translateY(0)';
+                                }, delay);
+                                delay += 80;
+                            }
+                        });
+                        obs.disconnect();
+                    }
+                });
+            }, { threshold: 0.1 });
+            menuObserver.observe(menuGrid);
+
+            // Set initial state for menu items
+            items.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(10px)';
+            });
+
+            // --- 3. Staggered fade-in for Street Vibes ---
+            const vibesGrid = document.querySelector('#reviews .grid');
+            if (vibesGrid) {
+                const vibeItems = vibesGrid.querySelectorAll('div.aspect-square');
+                vibeItems.forEach(item => {
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateY(20px)';
+                    item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                });
+
+                const vibesObserver = new IntersectionObserver((entries, obs) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            vibeItems.forEach((item, i) => {
+                                setTimeout(() => {
+                                    item.style.opacity = '1';
+                                    item.style.transform = 'translateY(0)';
+                                }, i * 80);
+                            });
+                            obs.disconnect();
+                        }
+                    });
+                }, { threshold: 0.1 });
+                vibesObserver.observe(vibesGrid);
+            }
+
+            // --- 4. Mobile Menu Logic ---
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenuClose = document.getElementById('mobile-menu-close');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+            function openMobileMenu() {
+                mobileMenu.classList.remove('-translate-x-full');
+                mobileMenuOverlay.classList.remove('opacity-0', 'pointer-events-none');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeMobileMenu() {
+                mobileMenu.classList.add('-translate-x-full');
+                mobileMenuOverlay.classList.add('opacity-0', 'pointer-events-none');
+                document.body.style.overflow = '';
+            }
+
+            if (mobileMenuBtn && mobileMenuClose && mobileMenu && mobileMenuOverlay) {
+                mobileMenuBtn.addEventListener('click', openMobileMenu);
+                mobileMenuClose.addEventListener('click', closeMobileMenu);
+                mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+
+                mobileNavLinks.forEach(link => {
+                    link.addEventListener('click', closeMobileMenu);
+                });
+            }
+
+            // --- 5. Open/Closed Status Logic ---
+            function updateStatusBadge() {
+                // Berlin timezone offset (rough calculation for client side, handling standard/summer time simplistically for this demo)
+                // A better approach would be to use a library like luxon, but for raw JS:
+                const now = new Date();
+                const formatter = new Intl.DateTimeFormat('en-US', {
+                    timeZone: 'Europe/Berlin',
+                    hour: 'numeric',
+                    minute: 'numeric',
+                    hour12: false,
+                    weekday: 'short'
+                });
+
+                const parts = formatter.formatToParts(now);
+                let hourStr = '0', minuteStr = '0', dayStr = 'Mon';
+
+                parts.forEach(part => {
+                    if (part.type === 'hour') hourStr = part.value;
+                    if (part.type === 'minute') minuteStr = part.value;
+                    if (part.type === 'weekday') dayStr = part.value;
+                });
+
+                const currentHour = parseInt(hourStr, 10);
+                const currentMinute = parseInt(minuteStr, 10);
+                const timeInMinutes = currentHour * 60 + currentMinute;
+
+                // Mo-Do: 11:00 - 22:00 (660 - 1320)
+                // Fr-Sa: 11:00 - 23:00 (660 - 1380)
+                // So: 12:00 - 22:00 (720 - 1320)
+
+                let isOpen = false;
+                let opensAt = "11:00";
+
+                if (['Mon', 'Tue', 'Wed', 'Thu'].includes(dayStr)) {
+                    isOpen = timeInMinutes >= 660 && timeInMinutes < 1320;
+                    opensAt = "11:00";
+                } else if (['Fri', 'Sat'].includes(dayStr)) {
+                    isOpen = timeInMinutes >= 660 && timeInMinutes < 1380;
+                    opensAt = "11:00";
+                } else if (dayStr === 'Sun') {
+                    isOpen = timeInMinutes >= 720 && timeInMinutes < 1320;
+                    opensAt = "12:00";
+                }
+
+                const desktopBadge = document.getElementById('status-badge');
+                const mobileBadge = document.getElementById('mobile-status-badge');
+
+                function applyStatus(badge) {
+                    if (!badge) return;
+                    const dot = badge.querySelector('.status-dot');
+                    const text = badge.querySelector('.status-text');
+
+                    if (isOpen) {
+                        dot.className = "status-dot w-2 h-2 rounded-full bg-green-500 animate-pulse";
+                        text.textContent = "Geöffnet";
+                        text.className = "status-text text-green-400";
+                        badge.className = badge.className.replace(/border-white\/10|border-red-500\/30/, 'border-green-500/30');
+                    } else {
+                        dot.className = "status-dot w-2 h-2 rounded-full bg-red-500";
+                        text.textContent = `Geschlossen · Öffnet ${opensAt}`;
+                        text.className = "status-text text-red-400";
+                        badge.className = badge.className.replace(/border-white\/10|border-green-500\/30/, 'border-red-500/30');
+                    }
+                }
+
+                applyStatus(desktopBadge);
+                applyStatus(mobileBadge);
+            }
+
+            updateStatusBadge();
+            setInterval(updateStatusBadge, 60000); // Update every minute
+
+            // --- 6. Mobile Bottom Nav Scroll Logic ---
+            const bottomNav = document.getElementById('bottom-nav');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 150) {
+                    bottomNav.classList.remove('translate-y-full');
+                } else {
+                    bottomNav.classList.add('translate-y-full');
+                }
+            });
+
+            // --- 7. Parallax and Mouse Tilt on Desktop ---
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (window.innerWidth >= 1280 && !prefersReducedMotion) {
+                const heroSection = document.getElementById('hero');
+                const heroImgContainer = heroSection.querySelector('.z-0');
+                const heroImg = heroImgContainer.querySelector('img');
+
+                if (heroImg) {
+                    // Mouse tilt effect
+                    heroSection.addEventListener('mousemove', (e) => {
+                        const { left, top, width, height } = heroSection.getBoundingClientRect();
+                        const x = (e.clientX - left) / width;
+                        const y = (e.clientY - top) / height;
+
+                        // Limit to small rotation degrees
+                        const rotateX = (y - 0.5) * -4;
+                        const rotateY = (x - 0.5) * 4;
+
+                        heroImg.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+                    });
+
+                    heroSection.addEventListener('mouseleave', () => {
+                        heroImg.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
+                        heroImg.style.transition = 'transform 0.5s ease-out';
+                        setTimeout(() => heroImg.style.transition = '', 500);
+                    });
+
+                    // Scroll Parallax effect
+                    window.addEventListener('scroll', () => {
+                        const scrollY = window.scrollY;
+                        if (scrollY < window.innerHeight) {
+                            // Move container downwards slightly (up to 15% parallax)
+                            heroImgContainer.style.transform = `translateY(${scrollY * 0.15}px)`;
+                        }
+                    });
+                }
+            }
 
             // Duplicate the marquee content for seamless infinite scrolling if screen is wide
             const marqueeContent = document.querySelector('.marquee-content');
