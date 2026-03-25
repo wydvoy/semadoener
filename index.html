@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html class="dark" lang="de">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Sema Döner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ff9159",
+                        "primary-fixed": "#ff7a2f",
+                        "on-primary-fixed": "#000000",
+                        "surface": "#0e0e0e",
+                        "surface-container": "#191919",
+                        "surface-container-high": "#1f1f1f",
+                        "surface-container-low": "#131313",
+                        "surface-container-lowest": "#000000",
+                        "on-surface": "#ffffff",
+                        "on-surface-variant": "#ababab",
+                        "background": "#0e0e0e"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Be Vietnam Pro"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .marquee-container { overflow: hidden; white-space: nowrap; }
+        .marquee-content { display: inline-block; animation: marquee 20s linear infinite; }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        body { background-color: #0e0e0e; color: #ffffff; min-height: max(884px, 100dvh); }
+
+        /* Fade-in on scroll styles */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, visibility;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+    </style>
+</head>
+<body class="font-body selection:bg-primary selection:text-on-primary-fixed bg-background text-on-surface">
+
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 bg-[#0e0e0e]/70 backdrop-blur-xl flex justify-between items-center px-6 h-16 shadow-[0_40px_40px_-15px_rgba(255,145,89,0.08)]">
+        <div class="flex items-center gap-4">
+            <span class="material-symbols-outlined text-primary md:hidden">menu</span>
+            <span class="text-xl font-black text-primary tracking-tighter font-headline uppercase">SEMA DÖNER</span>
+        </div>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex gap-8">
+            <a href="#hero" class="font-headline font-bold text-on-surface hover:text-primary transition-colors">Start</a>
+            <a href="#menu" class="font-headline font-bold text-on-surface hover:text-primary transition-colors">Menü</a>
+            <a href="#reviews" class="font-headline font-bold text-on-surface hover:text-primary transition-colors">Vibes</a>
+            <a href="#kontakt" class="font-headline font-bold text-on-surface hover:text-primary transition-colors">Kontakt</a>
+        </nav>
+
+        <a href="tel:02744931678" class="font-headline uppercase tracking-tighter font-bold text-primary hover:text-primary-fixed transition-colors active:scale-95 transition-transform">BESTELLEN</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative h-screen w-full flex items-center justify-center overflow-hidden fade-in-section is-visible">
+        <div class="absolute inset-0 z-0">
+            <img class="w-full h-full object-cover opacity-60 grayscale-[20%] contrast-125" alt="Close-up of a loaded döner kebab" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDE9o7Qi-LXhWZq7vwCIFXbEgTsv2chkEpdPE0eWWmKm1tBLOB2q9l1sooCIAf9khXIxXD7swkAEI4754De5XXuop6NhIhG05YROq_ykDeW5qGC5fRcA9x0w7mkJV73fUaxtyEy6mZ70Y1Wv6rcVxB8WXHXvAelRmk1JKDUymEB3d9sMo03tOFAZipTzwxcXdVB5s0mnQCoPK41u09ET_QYm-8DHnWGtpFsk-limSBVyXzqA-0SpQ-ilIB4GMCVcBln-gNSFJS5hN4"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40"></div>
+        </div>
+        <div class="relative z-10 text-center px-4 w-full max-w-6xl">
+            <p class="font-headline font-bold text-primary tracking-[0.3em] uppercase mb-4 text-xs md:text-base">Food Factory by Musty</p>
+            <h1 class="font-headline font-black text-6xl md:text-[10rem] leading-[0.85] tracking-tighter uppercase break-words">
+                SEMA<br/><span class="text-primary">DÖNER</span>
+            </h1>
+        </div>
+
+        <!-- Sticky Floating CTA -->
+        <div class="absolute bottom-24 md:bottom-12 left-0 w-full flex justify-center z-20 px-6">
+            <a href="tel:02744931678" class="w-full max-w-md py-6 bg-primary text-on-primary-fixed font-headline font-extrabold text-xl tracking-widest uppercase hover:bg-primary-fixed transition-all active:scale-95 shadow-2xl text-center block rounded-md">
+                BESTELLEN
+            </a>
+        </div>
+    </section>
+
+    <!-- Scrolling Marquee -->
+    <div class="bg-primary py-4 marquee-container relative z-30 border-y border-on-primary-fixed/10">
+        <div class="marquee-content font-headline font-black text-2xl md:text-4xl text-on-primary-fixed uppercase tracking-tighter">
+            FRISCH GEGRILLT • HALAL • SEIT JAHREN IN HERDORF • 4,6 ★ GOOGLE • FRISCH GEGRILLT • HALAL • SEIT JAHREN IN HERDORF • 4,6 ★ GOOGLE • FRISCH GEGRILLT • HALAL • SEIT JAHREN IN HERDORF • 4,6 ★ GOOGLE •
+        </div>
+    </div>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-24 px-6 bg-surface fade-in-section">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="font-headline font-black text-6xl md:text-9xl tracking-tighter uppercase mb-12 leading-none">
+                WAS WILLST<br/><span class="text-primary">DU?</span>
+            </h2>
+
+            <!-- Tabs -->
+            <div class="flex overflow-x-auto gap-4 pb-8 no-scrollbar mb-12" id="menu-tabs">
+                <button data-filter="all" class="menu-tab px-8 py-3 bg-primary text-on-primary-fixed font-headline font-bold uppercase whitespace-nowrap transition-colors">Alle</button>
+                <button data-filter="doener" class="menu-tab px-8 py-3 bg-surface-container text-on-surface font-headline font-bold uppercase whitespace-nowrap hover:bg-surface-container-high transition-colors">Döner</button>
+                <button data-filter="duerum" class="menu-tab px-8 py-3 bg-surface-container text-on-surface font-headline font-bold uppercase whitespace-nowrap hover:bg-surface-container-high transition-colors">Dürüm</button>
+                <button data-filter="chili-cheese" class="menu-tab px-8 py-3 bg-surface-container text-on-surface font-headline font-bold uppercase whitespace-nowrap hover:bg-surface-container-high transition-colors">Chili Cheese</button>
+                <button data-filter="vegetarisch" class="menu-tab px-8 py-3 bg-surface-container text-on-surface font-headline font-bold uppercase whitespace-nowrap hover:bg-surface-container-high transition-colors">Vegetarisch</button>
+                <button data-filter="getraenke" class="menu-tab px-8 py-3 bg-surface-container text-on-surface font-headline font-bold uppercase whitespace-nowrap hover:bg-surface-container-high transition-colors">Getränke</button>
+            </div>
+
+            <!-- Menu Grid -->
+            <div class="grid md:grid-cols-2 gap-12" id="menu-grid">
+                <!-- Menu Item 1 -->
+                <div class="menu-item flex bg-surface-container group cursor-pointer hover:-translate-y-2 hover:shadow-2xl hover:bg-surface-container-high transition-all duration-300" data-category="doener">
+                    <div class="w-32 h-32 md:w-48 md:h-48 flex-shrink-0">
+                        <img class="w-full h-full object-cover" alt="Döner sandwich" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsB6-C4rF3VZtdZYXhN9DFGTHis2uiBkxYVyvyXGDtiGZ8krleSZ8cw9DgDb286x85QV_si2oc-Zi6Szmac7VCJQTgLx7hjiiR-lcEL9ISyYOB_3U6ockB41Z6eSCPeKTTGb8tXtF2RwS0xgWlezjlYtpCTvktNGjwQk874IWejwxXqeRSIvWy8h5cAOHaxRtWh72He-7ICip1DvhDkfbcddoKp__nn_8z0g3TystSsDSwTKyKIOtaMlzbyBNAlC7QZFZjsefzJB8"/>
+                    </div>
+                    <div class="p-6 flex flex-col justify-between w-full">
+                        <div>
+                            <h3 class="font-headline font-bold text-2xl uppercase tracking-tighter group-hover:text-primary transition-colors">Klassik Döner</h3>
+                            <p class="text-on-surface-variant font-body text-sm mt-2 line-clamp-2">Kalbfleisch, Salat, Zwiebeln, Tomaten und Mustys Spezialsauce.</p>
+                        </div>
+                        <span class="font-headline font-black text-2xl text-primary mt-4">7,50 €</span>
+                    </div>
+                </div>
+
+                <!-- Menu Item 2 -->
+                <div class="menu-item flex bg-surface-container group cursor-pointer hover:-translate-y-2 hover:shadow-2xl hover:bg-surface-container-high transition-all duration-300" data-category="duerum">
+                    <div class="w-32 h-32 md:w-48 md:h-48 flex-shrink-0">
+                        <img class="w-full h-full object-cover" alt="Large Dürüm wrap" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCntW-qZHCa2FLOZ_wLdK-TtcOBd9TBau0lIYm_DWSo0uJLOUHNgAlyfqLRt-PhXdjmrXBXYoy3xpnmZIncvBbnm7Ov3T0yXFgHWmuf-4NHCAhJlo-Tujg3oUUZFgoXPFeStOxvIP3uc4DBVpmLJ8jaVuVuIW8zaV-YL0otslMElXTHes-W9XOomPZM0U_N5yrZkGdmYf1xKHIJy2bPETYgaJInqmEgb0_JD29p7q8r1qXYmVkcKmFcb8xwsWNctfSED4E6k64DQe8"/>
+                    </div>
+                    <div class="p-6 flex flex-col justify-between w-full">
+                        <div>
+                            <h3 class="font-headline font-bold text-2xl uppercase tracking-tighter group-hover:text-primary transition-colors">Big Dürüm</h3>
+                            <p class="text-on-surface-variant font-body text-sm mt-2 line-clamp-2">Extra viel Fleisch, dünnes Fladenbrot, doppelt Sauce.</p>
+                        </div>
+                        <span class="font-headline font-black text-2xl text-primary mt-4">8,50 €</span>
+                    </div>
+                </div>
+
+                <!-- Menu Item 3 -->
+                <div class="menu-item flex bg-surface-container group cursor-pointer hover:-translate-y-2 hover:shadow-2xl hover:bg-surface-container-high transition-all duration-300" data-category="chili-cheese">
+                    <div class="w-32 h-32 md:w-48 md:h-48 flex-shrink-0">
+                        <img class="w-full h-full object-cover" alt="Döner meat topped with melted chili cheese sauce" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUsOIXEYln3K9YRKr3YJJl20Mqd6R8HRMPbjXywyBRDdmDJ99UNAzOwvc-aoGcMMspJckiP6jv3UeU3oCwqX9SrzsAwp6qqQ2bSNPIUFjuhQjo5ZaBywxXcdF82Zqm8W9Y7J3r4MaJmH_pBFuZ4FnNsF224jzrIaItLfHS0nJJbTI5Smc_LVwYE7qOeXqYl1WevXvoi1i-E-TeodTmAfBZhVoafvJcSH9eYEzGOy2i0_L5PNrryT4hJsp2bbCr09CTDAp_Z4zEZ_0"/>
+                    </div>
+                    <div class="p-6 flex flex-col justify-between w-full">
+                        <div>
+                            <h3 class="font-headline font-bold text-2xl uppercase tracking-tighter group-hover:text-primary transition-colors">Chili Cheese Box</h3>
+                            <p class="text-on-surface-variant font-body text-sm mt-2 line-clamp-2">Pommes, Fleisch und unsere legendäre Chili-Cheese Sauce.</p>
+                        </div>
+                        <span class="font-headline font-black text-2xl text-primary mt-4">9,00 €</span>
+                    </div>
+                </div>
+
+                <!-- Menu Item 4 -->
+                <div class="menu-item flex bg-surface-container group cursor-pointer hover:-translate-y-2 hover:shadow-2xl hover:bg-surface-container-high transition-all duration-300" data-category="vegetarisch">
+                    <div class="w-32 h-32 md:w-48 md:h-48 flex-shrink-0">
+                        <img class="w-full h-full object-cover" alt="Falafel wrap" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0KCcf1Tp7hCjc_O5arj7GlNscs_LvVOxiMzUTY1pIaG2tzOm1X_XTnZAzNQRw90kNZwkvMOhtRIUo2E0dfzdIge1-wB_fOF-yrvJlyJB_DTTYgKP9ALS8AZ4_L4dWRhAXjv5Q5LrEi94lQckTBWvMWMWjrsOce_tLJ3ytatmEi5CuBpulstl7vXueQB527SPw-U8jOqIjZRoVYFpw8kOhJ0lNrLvVHcpG80EIgQ4oI1f7vM60e2MIWb4Kar3H8XRbw1vuPmxq1nA"/>
+                    </div>
+                    <div class="p-6 flex flex-col justify-between w-full">
+                        <div>
+                            <h3 class="font-headline font-bold text-2xl uppercase tracking-tighter group-hover:text-primary transition-colors">Veggi Döner</h3>
+                            <p class="text-on-surface-variant font-body text-sm mt-2 line-clamp-2">Hausgemachter Halloumi, Grillgemüse und Joghurt-Minz Sauce.</p>
+                        </div>
+                        <span class="font-headline font-black text-2xl text-primary mt-4">7,00 €</span>
+                    </div>
+                </div>
+
+                <!-- Menu Item 5 (Getränke placeholder) -->
+                <div class="menu-item flex bg-surface-container group cursor-pointer hover:-translate-y-2 hover:shadow-2xl hover:bg-surface-container-high transition-all duration-300" data-category="getraenke">
+                    <div class="w-32 h-32 md:w-48 md:h-48 flex-shrink-0 bg-surface-container-high flex items-center justify-center">
+                        <span class="material-symbols-outlined text-4xl text-on-surface-variant">local_drink</span>
+                    </div>
+                    <div class="p-6 flex flex-col justify-between w-full">
+                        <div>
+                            <h3 class="font-headline font-bold text-2xl uppercase tracking-tighter group-hover:text-primary transition-colors">Softdrinks</h3>
+                            <p class="text-on-surface-variant font-body text-sm mt-2 line-clamp-2">Cola, Fanta, Sprite, Ayran, Wasser</p>
+                        </div>
+                        <span class="font-headline font-black text-2xl text-primary mt-4">2,50 €</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews / Street Vibes Section -->
+    <section id="reviews" class="py-24 px-6 bg-surface-container-low overflow-hidden fade-in-section">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-end mb-12">
+                <h2 class="font-headline font-black text-4xl md:text-7xl tracking-tighter uppercase leading-none">
+                    STREET<br/><span class="text-primary">VIBES</span>
+                </h2>
+                <a class="font-headline font-bold text-primary underline underline-offset-8 tracking-tight hover:text-white transition-colors" href="#">@SEMADOENER_MUSTY</a>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="aspect-square bg-surface-container overflow-hidden">
+                    <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 scale-105 hover:scale-100" alt="Grill meat" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAi3Tf_ZFBFyzvYLIek73-eJxMOGj5HwHuFq7O_-xZEZ3AVoIqeD90uBu00wz7AIxDzXCby_mG3d0LemfvxvJCNp2f7pcUv4NhfIyde_1exnqLQDb2_xeeX1NLw6uwb329XVjlhfWQ5vVS_nOobv3_4iQ_OE2Ya5Zm9Dxxk4rR6Gs5MksG4rQu0vLekJ4TIUSI4iG25eDwYHFKanex2N7np0Eu7TBni-y5SIZPFd_WkSjEw0hEA0ngdC73uAzPnxy5IVExVBZbq020"/>
+                </div>
+                <div class="aspect-square bg-surface-container overflow-hidden">
+                    <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 scale-105 hover:scale-100" alt="Customer eating wrap" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARevjtO7zsx_9Vf_8cUp12NHDasrtNeXOmF4fcUfac78qdJto_WUIzvm2m56YWhymKMiokUwjjWIm74-wGk84OglhjuO_D5r-E0-mQ3g3qFHT9n7uCs0MY6pH4quqlaU-k1m6mIvNKBH24_pRImciGqb9kwPHEtltegy4XsyyeHB1Qg6QHbfMy-cxpZ37YqeiANHob8LXt4SV4cL3Jlxikk9N8b5PyFC2p6ZUn3tz8CqDjoqtniiZ4ZsE9l3eqx03x16udFd0EJ3k"/>
+                </div>
+                <div class="aspect-square bg-surface-container overflow-hidden">
+                    <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 scale-105 hover:scale-100" alt="Neon signs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpB07JC663EWD5wJ1aO5Hja3sJvgz6cyhVdt92TytUKicPZIh6UIowBj2w6-nJlegnEdeWCekPulEWYHMVsZUAY3-rgAhc_96gzGZjZ1iz90IwCtQG9DtRTVVbsj1orruYpCq0ZiNey8rvGiCqPmzTpjxeN0LgcSVNnm3awE4rAyU8oxlyC3SCL9tLt-d1Drw2z7D9YX_Grk4Y36JhlfbpbgmLcYN0fWYHwl5WQkPhkFavXm6sqkW253Qv519BIzu6ScUHrsu76Z0"/>
+                </div>
+                <div class="aspect-square bg-surface-container overflow-hidden">
+                    <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 scale-105 hover:scale-100" alt="Salad toppings" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd0ruIHieIunHh67zRADuCPtrzMUAmOGnZ002cDOUvFT8jJAhjA5iVsrHR8zqT06-MlgORUTdrWjGYlT0goyNcxy_iaYbBPZV1-S-dvLIuUZggT1iVAreDKvCynz3EHcw2ihpuj2WvpYQzslICs6kldQB5RBfWLvgKfCIHrtRTvdxuC4giwZ4mT0a-3iQHAnox6j6m13XJ0-ftS7MFBF3_K8tOropLraM-8BXzDanH0hk7RpXqBLjiM079l-gfGSgibUudWWIAdyU"/>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Find Us / Kontakt Section -->
+    <section id="kontakt" class="py-24 px-6 bg-surface-container-lowest fade-in-section">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="font-headline font-black text-6xl md:text-8xl tracking-tighter uppercase mb-8">
+                    FIND <span class="text-primary">US</span>
+                </h2>
+                <div class="space-y-8">
+                    <div>
+                        <p class="font-headline font-bold text-primary uppercase tracking-widest text-sm mb-2">Location</p>
+                        <p class="text-3xl font-headline font-medium">Hauptstraße 63,<br/>57562 Herdorf</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-8">
+                        <div>
+                            <p class="font-headline font-bold text-primary uppercase tracking-widest text-sm mb-2">Mo - Sa</p>
+                            <p class="text-xl font-headline font-medium">11:00 - 22:00</p>
+                        </div>
+                        <div>
+                            <p class="font-headline font-bold text-primary uppercase tracking-widest text-sm mb-2">So &amp; Feiertag</p>
+                            <p class="text-xl font-headline font-medium">12:00 - 21:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="h-[400px] w-full bg-surface-container relative">
+                <!-- Embedded Google Maps -->
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2530.824213601704!2d7.954546515865487!3d50.77209797951912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b97379f8c6ebf7%3A0xc4b38d3568c07e0b!2sHauptstra%C3%9Fe%2063%2C%2057562%20Herdorf!5e0!3m2!1sde!2sde!4v1700000000000!5m2!1sde!2sde"
+                    width="100%"
+                    height="100%"
+                    style="border:0; filter: invert(90%) hue-rotate(180deg);"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0e0e0e] flex flex-col items-center gap-8 py-12 px-6 w-full text-center fade-in-section">
+        <div class="text-[#ff9159] font-black font-headline text-4xl tracking-tighter uppercase">SEMA DÖNER</div>
+        <div class="flex gap-8">
+            <a class="text-gray-400 font-body text-xs tracking-tight hover:text-white transition-colors" href="#">IMPRESSUM</a>
+            <a class="text-gray-400 font-body text-xs tracking-tight hover:text-white transition-colors" href="#">DATENSCHUTZ</a>
+            <a class="text-gray-400 font-body text-xs tracking-tight hover:text-white transition-colors" href="#">INSTAGRAM</a>
+        </div>
+        <div class="space-y-2">
+            <p class="text-on-surface font-headline font-bold text-xl tracking-tighter">Tel: 02744 931678</p>
+            <p class="text-gray-500 font-body text-xs tracking-tight">MADE WITH LOVE IN HERDORF © 2024 SEMA DÖNER</p>
+        </div>
+        <div class="flex gap-4">
+            <span class="material-symbols-outlined text-primary cursor-pointer hover:scale-110 transition-transform">restaurant</span>
+            <span class="material-symbols-outlined text-primary cursor-pointer hover:scale-110 transition-transform">share</span>
+            <span class="material-symbols-outlined text-primary cursor-pointer hover:scale-110 transition-transform">phone_iphone</span>
+        </div>
+    </footer>
+
+    <!-- BottomNavBar (Mobile only) -->
+    <nav class="md:hidden fixed bottom-0 w-full z-50 bg-[#0e0e0e]/70 backdrop-blur-xl flex justify-around items-center h-20 pb-safe w-full border-t border-white/5">
+        <a href="#menu" class="flex flex-col items-center justify-center text-gray-500 hover:text-primary active:scale-90 transition-all duration-200">
+            <span class="material-symbols-outlined">restaurant_menu</span>
+            <span class="font-body text-[10px] uppercase font-bold tracking-widest mt-1">MENU</span>
+        </a>
+        <a href="#hero" class="flex flex-col items-center justify-center text-primary scale-110 active:scale-90 transition-all duration-200">
+            <span class="material-symbols-outlined">home</span>
+            <span class="font-body text-[10px] uppercase font-bold tracking-widest mt-1">START</span>
+        </a>
+        <a href="#kontakt" class="flex flex-col items-center justify-center text-gray-500 hover:text-primary active:scale-90 transition-all duration-200">
+            <span class="material-symbols-outlined">location_on</span>
+            <span class="font-body text-[10px] uppercase font-bold tracking-widest mt-1">LOKAL</span>
+        </a>
+        <a href="#reviews" class="flex flex-col items-center justify-center text-gray-500 hover:text-primary active:scale-90 transition-all duration-200">
+            <span class="material-symbols-outlined">photo_camera</span>
+            <span class="font-body text-[10px] uppercase font-bold tracking-widest mt-1">VIBES</span>
+        </a>
+    </nav>
+
+    <!-- Scripts for Logic and Animations -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- 1. Fade-in on Scroll Animation using Intersection Observer ---
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        // Optional: Unobserve after animating once
+                        // observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in-section').forEach((section) => {
+                observer.observe(section);
+            });
+
+
+            // --- 2. Menu Filtering Logic ---
+            const tabs = document.querySelectorAll('.menu-tab');
+            const items = document.querySelectorAll('.menu-item');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Update active tab styling
+                    tabs.forEach(t => {
+                        t.classList.remove('bg-primary', 'text-on-primary-fixed');
+                        t.classList.add('bg-surface-container', 'text-on-surface');
+                    });
+                    tab.classList.remove('bg-surface-container', 'text-on-surface');
+                    tab.classList.add('bg-primary', 'text-on-primary-fixed');
+
+                    const filterValue = tab.getAttribute('data-filter');
+
+                    // Show/hide menu items
+                    items.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'flex';
+                            // small animation trick
+                            item.style.opacity = '0';
+                            setTimeout(() => { item.style.opacity = '1'; }, 10);
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Duplicate the marquee content for seamless infinite scrolling if screen is wide
+            const marqueeContent = document.querySelector('.marquee-content');
+            if(marqueeContent) {
+                 marqueeContent.innerHTML += "&nbsp;" + marqueeContent.innerHTML;
+            }
+        });
+    </script>
+</body>
+</html>
