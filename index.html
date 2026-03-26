@@ -176,7 +176,7 @@
     </div>
 
     <!-- Hero Section -->
-    <section id="hero" class="relative h-screen w-full flex flex-col xl:flex-row overflow-hidden fade-in-section is-visible" aria-label="Hero Sektion">
+    <section id="hero" class="relative min-h-[max(884px,100dvh)] w-full flex flex-col xl:flex-row overflow-hidden fade-in-section is-visible" aria-label="Hero Sektion">
         <div class="absolute inset-0 xl:relative xl:w-[60%] xl:h-full z-0">
             <img fetchpriority="high" class="w-full h-full object-cover opacity-60 xl:opacity-100 grayscale-[20%] xl:grayscale-0 contrast-125" alt="Close-up of a loaded döner kebab" width="1920" height="1080" sizes="(max-width: 1280px) 100vw, 60vw" srcset="https://lh3.googleusercontent.com/aida-public/AB6AXuDE9o7Qi-LXhWZq7vwCIFXbEgTsv2chkEpdPE0eWWmKm1tBLOB2q9l1sooCIAf9khXIxXD7swkAEI4754De5XXuop6NhIhG05YROq_ykDeW5qGC5fRcA9x0w7mkJV73fUaxtyEy6mZ70Y1Wv6rcVxB8WXHXvAelRmk1JKDUymEB3d9sMo03tOFAZipTzwxcXdVB5s0mnQCoPK41u09ET_QYm-8DHnWGtpFsk-limSBVyXzqA-0SpQ-ilIB4GMCVcBln-gNSFJS5hN4=w800 800w, https://lh3.googleusercontent.com/aida-public/AB6AXuDE9o7Qi-LXhWZq7vwCIFXbEgTsv2chkEpdPE0eWWmKm1tBLOB2q9l1sooCIAf9khXIxXD7swkAEI4754De5XXuop6NhIhG05YROq_ykDeW5qGC5fRcA9x0w7mkJV73fUaxtyEy6mZ70Y1Wv6rcVxB8WXHXvAelRmk1JKDUymEB3d9sMo03tOFAZipTzwxcXdVB5s0mnQCoPK41u09ET_QYm-8DHnWGtpFsk-limSBVyXzqA-0SpQ-ilIB4GMCVcBln-gNSFJS5hN4=w1200 1200w, https://lh3.googleusercontent.com/aida-public/AB6AXuDE9o7Qi-LXhWZq7vwCIFXbEgTsv2chkEpdPE0eWWmKm1tBLOB2q9l1sooCIAf9khXIxXD7swkAEI4754De5XXuop6NhIhG05YROq_ykDeW5qGC5fRcA9x0w7mkJV73fUaxtyEy6mZ70Y1Wv6rcVxB8WXHXvAelRmk1JKDUymEB3d9sMo03tOFAZipTzwxcXdVB5s0mnQCoPK41u09ET_QYm-8DHnWGtpFsk-limSBVyXzqA-0SpQ-ilIB4GMCVcBln-gNSFJS5hN4=w1920 1920w" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDE9o7Qi-LXhWZq7vwCIFXbEgTsv2chkEpdPE0eWWmKm1tBLOB2q9l1sooCIAf9khXIxXD7swkAEI4754De5XXuop6NhIhG05YROq_ykDeW5qGC5fRcA9x0w7mkJV73fUaxtyEy6mZ70Y1Wv6rcVxB8WXHXvAelRmk1JKDUymEB3d9sMo03tOFAZipTzwxcXdVB5s0mnQCoPK41u09ET_QYm-8DHnWGtpFsk-limSBVyXzqA-0SpQ-ilIB4GMCVcBln-gNSFJS5hN4=w1920"/>
             <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40 xl:hidden"></div>
@@ -233,6 +233,16 @@
             <!-- Menu Grid -->
             <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-12" id="menu-grid">
                 <!-- Menu items will be dynamically injected here by JavaScript -->
+                <!-- Fallback menu items for no-js environments or SEO -->
+                <noscript>
+                    <div class="menu-item bg-surface-container">
+                        <div class="p-6">
+                            <h3 class="font-headline font-bold text-2xl uppercase text-primary">Klassik Döner</h3>
+                            <p class="text-on-surface-variant text-sm mt-2">Kalbfleisch, Salat, Zwiebeln, Tomaten und Mustys Spezialsauce.</p>
+                        </div>
+                    </div>
+                </noscript>
+
             </div>
         </div>
     </section>
@@ -284,20 +294,20 @@
                 </h2>
                 <div class="space-y-8">
                     <div>
-                        <p class="font-headline font-bold text-primary uppercase tracking-widest text-sm mb-2">Location</p>
+                        <h3 class="font-headline font-bold text-primary uppercase tracking-widest text-sm mb-2">Location</h3>
                         <p class="text-3xl font-headline font-medium">Hauptstraße 63,<br/>57562 Herdorf</p>
                     </div>
                     <div class="grid grid-cols-3 gap-4">
                         <div>
-                            <p class="font-headline font-bold text-primary uppercase tracking-widest text-sm mb-2">Mo - Do</p>
+                            <h3 class="font-headline font-bold text-primary uppercase tracking-widest text-sm mb-2">Mo - Do</h3>
                             <p class="text-xl font-headline font-medium">11:00 - 22:00</p>
                         </div>
                         <div>
-                            <p class="font-headline font-bold text-primary uppercase tracking-widest text-sm mb-2">Fr - Sa</p>
+                            <h3 class="font-headline font-bold text-primary uppercase tracking-widest text-sm mb-2">Fr - Sa</h3>
                             <p class="text-xl font-headline font-medium">11:00 - 23:00</p>
                         </div>
                         <div>
-                            <p class="font-headline font-bold text-primary uppercase tracking-widest text-sm mb-2">So</p>
+                            <h3 class="font-headline font-bold text-primary uppercase tracking-widest text-sm mb-2">So</h3>
                             <p class="text-xl font-headline font-medium">12:00 - 22:00</p>
                         </div>
                     </div>
@@ -310,7 +320,7 @@
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2530.824213601704!2d7.954546515865487!3d50.77209797951912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b97379f8c6ebf7%3A0xc4b38d3568c07e0b!2sHauptstra%C3%9Fe%2063%2C%2057562%20Herdorf!5e0!3m2!1sde!2sde!4v1700000000000!5m2!1sde!2sde"
                     width="100%"
                     height="100%"
-                    style="border:0; filter: invert(90%) hue-rotate(180deg);"
+                    style="border:0;"
                     allowfullscreen=""
                     loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade">
@@ -536,7 +546,7 @@
                 // Add title container to match original structure exactly
                 const titleContainer = document.createElement('div');
 
-                const titleH3 = document.createElement('h3');
+                const titleH3 = document.createElement('h3'); // ensure heading hierarchy starts with h3 for cards
                 titleH3.className = 'font-headline font-bold text-2xl uppercase tracking-tighter group-hover:text-primary transition-colors';
                 titleH3.textContent = itemData.title;
                 titleContainer.appendChild(titleH3);
