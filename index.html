@@ -59,38 +59,14 @@
     </script>
 
     <link rel="preload" as="image" href="https://lh3.googleusercontent.com/aida-public/AB6AXuDE9o7Qi-LXhWZq7vwCIFXbEgTsv2chkEpdPE0eWWmKm1tBLOB2q9l1sooCIAf9khXIxXD7swkAEI4754De5XXuop6NhIhG05YROq_ykDeW5qGC5fRcA9x0w7mkJV73fUaxtyEy6mZ70Y1Wv6rcVxB8WXHXvAelRmk1JKDUymEB3d9sMo03tOFAZipTzwxcXdVB5s0mnQCoPK41u09ET_QYm-8DHnWGtpFsk-limSBVyXzqA-0SpQ-ilIB4GMCVcBln-gNSFJS5hN4"/>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;200;300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700;800;900&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet"/>
 
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#ff9159",
-                        "primary-fixed": "#ff7a2f",
-                        "on-primary-fixed": "#000000",
-                        "surface": "#0e0e0e",
-                        "surface-container": "#191919",
-                        "surface-container-high": "#1f1f1f",
-                        "surface-container-low": "#131313",
-                        "surface-container-lowest": "#000000",
-                        "on-surface": "#ffffff",
-                        "on-surface-variant": "#ababab",
-                        "background": "#0e0e0e"
-                    },
-                    fontFamily: {
-                        "headline": ["Space Grotesk"],
-                        "body": ["Be Vietnam Pro"]
-                    }
-                }
-            }
-        }
-    </script>
+
+    <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="css/styles.css">
+
 </head>
 <body class="font-body selection:bg-primary selection:text-on-primary-fixed bg-background text-on-surface max-w-[1440px] mx-auto relative shadow-2xl">
     <a href="#menu" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:p-4 focus:bg-primary focus:text-on-primary-fixed focus:font-headline focus:font-bold focus:outline-none focus:ring-2 focus:ring-white">Zum Menü springen</a>
@@ -153,9 +129,9 @@
     </div>
 
     <!-- Hero Section -->
-    <section id="hero" class="relative h-screen w-full flex flex-col xl:flex-row overflow-hidden fade-in-section is-visible" aria-label="Hero Sektion">
+    <section id="hero" class="relative min-h-[max(884px,100dvh)] w-full flex flex-col xl:flex-row overflow-hidden fade-in-section is-visible" aria-label="Hero Sektion">
         <div class="absolute inset-0 xl:relative xl:w-[60%] xl:h-full z-0">
-            <img fetchpriority="high" class="w-full h-full object-cover opacity-60 xl:opacity-100 grayscale-[20%] xl:grayscale-0 contrast-125" alt="Close-up of a loaded döner kebab" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDE9o7Qi-LXhWZq7vwCIFXbEgTsv2chkEpdPE0eWWmKm1tBLOB2q9l1sooCIAf9khXIxXD7swkAEI4754De5XXuop6NhIhG05YROq_ykDeW5qGC5fRcA9x0w7mkJV73fUaxtyEy6mZ70Y1Wv6rcVxB8WXHXvAelRmk1JKDUymEB3d9sMo03tOFAZipTzwxcXdVB5s0mnQCoPK41u09ET_QYm-8DHnWGtpFsk-limSBVyXzqA-0SpQ-ilIB4GMCVcBln-gNSFJS5hN4"/>
+            <img fetchpriority="high" class="w-full h-full object-cover opacity-60 xl:opacity-100 grayscale-[20%] xl:grayscale-0 contrast-125" alt="Close-up of a loaded döner kebab" width="1920" height="1080" sizes="(max-width: 1280px) 100vw, 60vw" srcset="https://lh3.googleusercontent.com/aida-public/AB6AXuDE9o7Qi-LXhWZq7vwCIFXbEgTsv2chkEpdPE0eWWmKm1tBLOB2q9l1sooCIAf9khXIxXD7swkAEI4754De5XXuop6NhIhG05YROq_ykDeW5qGC5fRcA9x0w7mkJV73fUaxtyEy6mZ70Y1Wv6rcVxB8WXHXvAelRmk1JKDUymEB3d9sMo03tOFAZipTzwxcXdVB5s0mnQCoPK41u09ET_QYm-8DHnWGtpFsk-limSBVyXzqA-0SpQ-ilIB4GMCVcBln-gNSFJS5hN4=w800 800w, https://lh3.googleusercontent.com/aida-public/AB6AXuDE9o7Qi-LXhWZq7vwCIFXbEgTsv2chkEpdPE0eWWmKm1tBLOB2q9l1sooCIAf9khXIxXD7swkAEI4754De5XXuop6NhIhG05YROq_ykDeW5qGC5fRcA9x0w7mkJV73fUaxtyEy6mZ70Y1Wv6rcVxB8WXHXvAelRmk1JKDUymEB3d9sMo03tOFAZipTzwxcXdVB5s0mnQCoPK41u09ET_QYm-8DHnWGtpFsk-limSBVyXzqA-0SpQ-ilIB4GMCVcBln-gNSFJS5hN4=w1200 1200w, https://lh3.googleusercontent.com/aida-public/AB6AXuDE9o7Qi-LXhWZq7vwCIFXbEgTsv2chkEpdPE0eWWmKm1tBLOB2q9l1sooCIAf9khXIxXD7swkAEI4754De5XXuop6NhIhG05YROq_ykDeW5qGC5fRcA9x0w7mkJV73fUaxtyEy6mZ70Y1Wv6rcVxB8WXHXvAelRmk1JKDUymEB3d9sMo03tOFAZipTzwxcXdVB5s0mnQCoPK41u09ET_QYm-8DHnWGtpFsk-limSBVyXzqA-0SpQ-ilIB4GMCVcBln-gNSFJS5hN4=w1920 1920w" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDE9o7Qi-LXhWZq7vwCIFXbEgTsv2chkEpdPE0eWWmKm1tBLOB2q9l1sooCIAf9khXIxXD7swkAEI4754De5XXuop6NhIhG05YROq_ykDeW5qGC5fRcA9x0w7mkJV73fUaxtyEy6mZ70Y1Wv6rcVxB8WXHXvAelRmk1JKDUymEB3d9sMo03tOFAZipTzwxcXdVB5s0mnQCoPK41u09ET_QYm-8DHnWGtpFsk-limSBVyXzqA-0SpQ-ilIB4GMCVcBln-gNSFJS5hN4=w1920"/>
             <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40 xl:hidden"></div>
         </div>
         <div class="relative z-10 flex flex-col justify-center items-center xl:items-start text-center xl:text-left px-4 xl:px-12 w-full xl:w-[40%] h-full bg-background/50 xl:bg-transparent">
@@ -210,6 +186,16 @@
             <!-- Menu Grid -->
             <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-12" id="menu-grid">
                 <!-- Menu items will be dynamically injected here by JavaScript -->
+                <!-- Fallback menu items for no-js environments or SEO -->
+                <noscript>
+                    <div class="menu-item bg-surface-container">
+                        <div class="p-6">
+                            <h3 class="font-headline font-bold text-2xl uppercase text-primary">Klassik Döner</h3>
+                            <p class="text-on-surface-variant text-sm mt-2">Kalbfleisch, Salat, Zwiebeln, Tomaten und Mustys Spezialsauce.</p>
+                        </div>
+                    </div>
+                </noscript>
+
             </div>
         </div>
     </section>
@@ -225,25 +211,25 @@
             </div>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div class="aspect-square bg-surface-container overflow-hidden relative group">
-                    <img loading="lazy" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100" alt="Grill meat" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAi3Tf_ZFBFyzvYLIek73-eJxMOGj5HwHuFq7O_-xZEZ3AVoIqeD90uBu00wz7AIxDzXCby_mG3d0LemfvxvJCNp2f7pcUv4NhfIyde_1exnqLQDb2_xeeX1NLw6uwb329XVjlhfWQ5vVS_nOobv3_4iQ_OE2Ya5Zm9Dxxk4rR6Gs5MksG4rQu0vLekJ4TIUSI4iG25eDwYHFKanex2N7np0Eu7TBni-y5SIZPFd_WkSjEw0hEA0ngdC73uAzPnxy5IVExVBZbq020"/>
+                    <img loading="lazy" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100" alt="Grill meat" width="800" height="800" sizes="(max-width: 768px) 50vw, 25vw" srcset="https://lh3.googleusercontent.com/aida-public/AB6AXuAi3Tf_ZFBFyzvYLIek73-eJxMOGj5HwHuFq7O_-xZEZ3AVoIqeD90uBu00wz7AIxDzXCby_mG3d0LemfvxvJCNp2f7pcUv4NhfIyde_1exnqLQDb2_xeeX1NLw6uwb329XVjlhfWQ5vVS_nOobv3_4iQ_OE2Ya5Zm9Dxxk4rR6Gs5MksG4rQu0vLekJ4TIUSI4iG25eDwYHFKanex2N7np0Eu7TBni-y5SIZPFd_WkSjEw0hEA0ngdC73uAzPnxy5IVExVBZbq020=w400 400w, https://lh3.googleusercontent.com/aida-public/AB6AXuAi3Tf_ZFBFyzvYLIek73-eJxMOGj5HwHuFq7O_-xZEZ3AVoIqeD90uBu00wz7AIxDzXCby_mG3d0LemfvxvJCNp2f7pcUv4NhfIyde_1exnqLQDb2_xeeX1NLw6uwb329XVjlhfWQ5vVS_nOobv3_4iQ_OE2Ya5Zm9Dxxk4rR6Gs5MksG4rQu0vLekJ4TIUSI4iG25eDwYHFKanex2N7np0Eu7TBni-y5SIZPFd_WkSjEw0hEA0ngdC73uAzPnxy5IVExVBZbq020=w800 800w" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAi3Tf_ZFBFyzvYLIek73-eJxMOGj5HwHuFq7O_-xZEZ3AVoIqeD90uBu00wz7AIxDzXCby_mG3d0LemfvxvJCNp2f7pcUv4NhfIyde_1exnqLQDb2_xeeX1NLw6uwb329XVjlhfWQ5vVS_nOobv3_4iQ_OE2Ya5Zm9Dxxk4rR6Gs5MksG4rQu0vLekJ4TIUSI4iG25eDwYHFKanex2N7np0Eu7TBni-y5SIZPFd_WkSjEw0hEA0ngdC73uAzPnxy5IVExVBZbq020=w800"/>
                     <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center pointer-events-none">
                         <span class="font-headline font-bold text-white text-xl md:text-2xl tracking-widest uppercase translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Fresh</span>
                     </div>
                 </div>
                 <div class="aspect-square bg-surface-container overflow-hidden relative group">
-                    <img loading="lazy" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100" alt="Customer eating wrap" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARevjtO7zsx_9Vf_8cUp12NHDasrtNeXOmF4fcUfac78qdJto_WUIzvm2m56YWhymKMiokUwjjWIm74-wGk84OglhjuO_D5r-E0-mQ3g3qFHT9n7uCs0MY6pH4quqlaU-k1m6mIvNKBH24_pRImciGqb9kwPHEtltegy4XsyyeHB1Qg6QHbfMy-cxpZ37YqeiANHob8LXt4SV4cL3Jlxikk9N8b5PyFC2p6ZUn3tz8CqDjoqtniiZ4ZsE9l3eqx03x16udFd0EJ3k"/>
+                    <img loading="lazy" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100" alt="Customer eating wrap" width="800" height="800" sizes="(max-width: 768px) 50vw, 25vw" srcset="https://lh3.googleusercontent.com/aida-public/AB6AXuARevjtO7zsx_9Vf_8cUp12NHDasrtNeXOmF4fcUfac78qdJto_WUIzvm2m56YWhymKMiokUwjjWIm74-wGk84OglhjuO_D5r-E0-mQ3g3qFHT9n7uCs0MY6pH4quqlaU-k1m6mIvNKBH24_pRImciGqb9kwPHEtltegy4XsyyeHB1Qg6QHbfMy-cxpZ37YqeiANHob8LXt4SV4cL3Jlxikk9N8b5PyFC2p6ZUn3tz8CqDjoqtniiZ4ZsE9l3eqx03x16udFd0EJ3k=w400 400w, https://lh3.googleusercontent.com/aida-public/AB6AXuARevjtO7zsx_9Vf_8cUp12NHDasrtNeXOmF4fcUfac78qdJto_WUIzvm2m56YWhymKMiokUwjjWIm74-wGk84OglhjuO_D5r-E0-mQ3g3qFHT9n7uCs0MY6pH4quqlaU-k1m6mIvNKBH24_pRImciGqb9kwPHEtltegy4XsyyeHB1Qg6QHbfMy-cxpZ37YqeiANHob8LXt4SV4cL3Jlxikk9N8b5PyFC2p6ZUn3tz8CqDjoqtniiZ4ZsE9l3eqx03x16udFd0EJ3k=w800 800w" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARevjtO7zsx_9Vf_8cUp12NHDasrtNeXOmF4fcUfac78qdJto_WUIzvm2m56YWhymKMiokUwjjWIm74-wGk84OglhjuO_D5r-E0-mQ3g3qFHT9n7uCs0MY6pH4quqlaU-k1m6mIvNKBH24_pRImciGqb9kwPHEtltegy4XsyyeHB1Qg6QHbfMy-cxpZ37YqeiANHob8LXt4SV4cL3Jlxikk9N8b5PyFC2p6ZUn3tz8CqDjoqtniiZ4ZsE9l3eqx03x16udFd0EJ3k=w800"/>
                     <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center pointer-events-none">
                         <span class="font-headline font-bold text-white text-xl md:text-2xl tracking-widest uppercase translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Vibes</span>
                     </div>
                 </div>
                 <div class="aspect-square bg-surface-container overflow-hidden relative group">
-                    <img loading="lazy" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100" alt="Neon signs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpB07JC663EWD5wJ1aO5Hja3sJvgz6cyhVdt92TytUKicPZIh6UIowBj2w6-nJlegnEdeWCekPulEWYHMVsZUAY3-rgAhc_96gzGZjZ1iz90IwCtQG9DtRTVVbsj1orruYpCq0ZiNey8rvGiCqPmzTpjxeN0LgcSVNnm3awE4rAyU8oxlyC3SCL9tLt-d1Drw2z7D9YX_Grk4Y36JhlfbpbgmLcYN0fWYHwl5WQkPhkFavXm6sqkW253Qv519BIzu6ScUHrsu76Z0"/>
+                    <img loading="lazy" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100" alt="Neon signs" width="800" height="800" sizes="(max-width: 768px) 50vw, 25vw" srcset="https://lh3.googleusercontent.com/aida-public/AB6AXuDpB07JC663EWD5wJ1aO5Hja3sJvgz6cyhVdt92TytUKicPZIh6UIowBj2w6-nJlegnEdeWCekPulEWYHMVsZUAY3-rgAhc_96gzGZjZ1iz90IwCtQG9DtRTVVbsj1orruYpCq0ZiNey8rvGiCqPmzTpjxeN0LgcSVNnm3awE4rAyU8oxlyC3SCL9tLt-d1Drw2z7D9YX_Grk4Y36JhlfbpbgmLcYN0fWYHwl5WQkPhkFavXm6sqkW253Qv519BIzu6ScUHrsu76Z0=w400 400w, https://lh3.googleusercontent.com/aida-public/AB6AXuDpB07JC663EWD5wJ1aO5Hja3sJvgz6cyhVdt92TytUKicPZIh6UIowBj2w6-nJlegnEdeWCekPulEWYHMVsZUAY3-rgAhc_96gzGZjZ1iz90IwCtQG9DtRTVVbsj1orruYpCq0ZiNey8rvGiCqPmzTpjxeN0LgcSVNnm3awE4rAyU8oxlyC3SCL9tLt-d1Drw2z7D9YX_Grk4Y36JhlfbpbgmLcYN0fWYHwl5WQkPhkFavXm6sqkW253Qv519BIzu6ScUHrsu76Z0=w800 800w" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpB07JC663EWD5wJ1aO5Hja3sJvgz6cyhVdt92TytUKicPZIh6UIowBj2w6-nJlegnEdeWCekPulEWYHMVsZUAY3-rgAhc_96gzGZjZ1iz90IwCtQG9DtRTVVbsj1orruYpCq0ZiNey8rvGiCqPmzTpjxeN0LgcSVNnm3awE4rAyU8oxlyC3SCL9tLt-d1Drw2z7D9YX_Grk4Y36JhlfbpbgmLcYN0fWYHwl5WQkPhkFavXm6sqkW253Qv519BIzu6ScUHrsu76Z0=w800"/>
                     <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center pointer-events-none">
                         <span class="font-headline font-bold text-white text-xl md:text-2xl tracking-widest uppercase translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Night</span>
                     </div>
                 </div>
                 <div class="aspect-square bg-surface-container overflow-hidden relative group">
-                    <img loading="lazy" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100" alt="Salad toppings" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd0ruIHieIunHh67zRADuCPtrzMUAmOGnZ002cDOUvFT8jJAhjA5iVsrHR8zqT06-MlgORUTdrWjGYlT0goyNcxy_iaYbBPZV1-S-dvLIuUZggT1iVAreDKvCynz3EHcw2ihpuj2WvpYQzslICs6kldQB5RBfWLvgKfCIHrtRTvdxuC4giwZ4mT0a-3iQHAnox6j6m13XJ0-ftS7MFBF3_K8tOropLraM-8BXzDanH0hk7RpXqBLjiM079l-gfGSgibUudWWIAdyU"/>
+                    <img loading="lazy" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100" alt="Salad toppings" width="800" height="800" sizes="(max-width: 768px) 50vw, 25vw" srcset="https://lh3.googleusercontent.com/aida-public/AB6AXuCd0ruIHieIunHh67zRADuCPtrzMUAmOGnZ002cDOUvFT8jJAhjA5iVsrHR8zqT06-MlgORUTdrWjGYlT0goyNcxy_iaYbBPZV1-S-dvLIuUZggT1iVAreDKvCynz3EHcw2ihpuj2WvpYQzslICs6kldQB5RBfWLvgKfCIHrtRTvdxuC4giwZ4mT0a-3iQHAnox6j6m13XJ0-ftS7MFBF3_K8tOropLraM-8BXzDanH0hk7RpXqBLjiM079l-gfGSgibUudWWIAdyU=w400 400w, https://lh3.googleusercontent.com/aida-public/AB6AXuCd0ruIHieIunHh67zRADuCPtrzMUAmOGnZ002cDOUvFT8jJAhjA5iVsrHR8zqT06-MlgORUTdrWjGYlT0goyNcxy_iaYbBPZV1-S-dvLIuUZggT1iVAreDKvCynz3EHcw2ihpuj2WvpYQzslICs6kldQB5RBfWLvgKfCIHrtRTvdxuC4giwZ4mT0a-3iQHAnox6j6m13XJ0-ftS7MFBF3_K8tOropLraM-8BXzDanH0hk7RpXqBLjiM079l-gfGSgibUudWWIAdyU=w800 800w" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd0ruIHieIunHh67zRADuCPtrzMUAmOGnZ002cDOUvFT8jJAhjA5iVsrHR8zqT06-MlgORUTdrWjGYlT0goyNcxy_iaYbBPZV1-S-dvLIuUZggT1iVAreDKvCynz3EHcw2ihpuj2WvpYQzslICs6kldQB5RBfWLvgKfCIHrtRTvdxuC4giwZ4mT0a-3iQHAnox6j6m13XJ0-ftS7MFBF3_K8tOropLraM-8BXzDanH0hk7RpXqBLjiM079l-gfGSgibUudWWIAdyU=w800"/>
                     <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center pointer-events-none">
                         <span class="font-headline font-bold text-white text-xl md:text-2xl tracking-widest uppercase translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Quality</span>
                     </div>
@@ -261,20 +247,20 @@
                 </h2>
                 <div class="space-y-8">
                     <div>
-                        <p class="font-headline font-bold text-primary uppercase tracking-widest text-sm mb-2">Location</p>
+                        <h3 class="font-headline font-bold text-primary uppercase tracking-widest text-sm mb-2">Location</h3>
                         <p class="text-3xl font-headline font-medium">Hauptstraße 63,<br/>57562 Herdorf</p>
                     </div>
                     <div class="grid grid-cols-3 gap-4">
                         <div>
-                            <p class="font-headline font-bold text-primary uppercase tracking-widest text-sm mb-2">Mo - Do</p>
+                            <h3 class="font-headline font-bold text-primary uppercase tracking-widest text-sm mb-2">Mo - Do</h3>
                             <p class="text-xl font-headline font-medium">11:00 - 22:00</p>
                         </div>
                         <div>
-                            <p class="font-headline font-bold text-primary uppercase tracking-widest text-sm mb-2">Fr - Sa</p>
+                            <h3 class="font-headline font-bold text-primary uppercase tracking-widest text-sm mb-2">Fr - Sa</h3>
                             <p class="text-xl font-headline font-medium">11:00 - 23:00</p>
                         </div>
                         <div>
-                            <p class="font-headline font-bold text-primary uppercase tracking-widest text-sm mb-2">So</p>
+                            <h3 class="font-headline font-bold text-primary uppercase tracking-widest text-sm mb-2">So</h3>
                             <p class="text-xl font-headline font-medium">12:00 - 22:00</p>
                         </div>
                     </div>
@@ -287,7 +273,7 @@
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2530.824213601704!2d7.954546515865487!3d50.77209797951912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b97379f8c6ebf7%3A0xc4b38d3568c07e0b!2sHauptstra%C3%9Fe%2063%2C%2057562%20Herdorf!5e0!3m2!1sde!2sde!4v1700000000000!5m2!1sde!2sde"
                     width="100%"
                     height="100%"
-                    style="border:0; filter: invert(90%) hue-rotate(180deg);"
+                    style="border:0;"
                     allowfullscreen=""
                     loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade">
