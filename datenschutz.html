@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html class="dark bg-background" lang="de">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Datenschutz - Sema Döner by Musty</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ff9159",
+                        "primary-fixed": "#ff7a2f",
+                        "on-primary-fixed": "#000000",
+                        "surface": "#0e0e0e",
+                        "surface-container": "#191919",
+                        "surface-container-high": "#1f1f1f",
+                        "surface-container-low": "#131313",
+                        "surface-container-lowest": "#000000",
+                        "on-surface": "#ffffff",
+                        "on-surface-variant": "#ababab",
+                        "background": "#0e0e0e"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Be Vietnam Pro"]
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="font-body selection:bg-primary selection:text-on-primary-fixed bg-background text-on-surface max-w-[1440px] mx-auto relative shadow-2xl">
+    <header class="fixed top-0 w-full max-w-[1440px] mx-auto right-0 left-0 z-50 bg-[#0e0e0e]/70 backdrop-blur-xl flex justify-between items-center px-6 h-16 shadow-[0_40px_40px_-15px_rgba(255,145,89,0.08)]">
+        <a href="index.html" class="flex items-center gap-4">
+            <span class="text-xl font-black text-primary tracking-tighter font-headline uppercase">SEMA DÖNER</span>
+        </a>
+    </header>
+
+    <main class="pt-32 pb-24 px-6 max-w-4xl mx-auto min-h-screen">
+        <h1 class="font-headline font-black text-5xl tracking-tighter uppercase mb-12">Datenschutzerklärung</h1>
+        <div class="space-y-6 text-on-surface-variant">
+            <h2 class="font-headline font-bold text-2xl text-white">1. Datenschutz auf einen Blick</h2>
+            <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen.</p>
+
+            <h2 class="font-headline font-bold text-2xl text-white mt-8">2. Allgemeine Hinweise und Pflichtinformationen</h2>
+            <p><strong>Datenschutz</strong><br>Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften.</p>
+
+            <h2 class="font-headline font-bold text-2xl text-white mt-8">3. Datenerfassung auf dieser Website</h2>
+            <p><strong>Server-Log-Dateien</strong><br>Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:<br>
+            - Browsertyp und Browserversion<br>
+            - verwendetes Betriebssystem<br>
+            - Referrer URL<br>
+            - Hostname des zugreifenden Rechners<br>
+            - Uhrzeit der Serveranfrage<br>
+            - IP-Adresse</p>
+
+            <h2 class="font-headline font-bold text-2xl text-white mt-8">4. Hinweis zur verantwortlichen Stelle</h2>
+            <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:<br><br>
+            Sema Döner by Musty<br>Hauptstraße 63<br>57562 Herdorf<br><br>Telefon: 02744 931678</p>
+        </div>
+    </main>
+
+    <footer class="bg-[#0e0e0e] flex flex-col items-center gap-8 py-12 px-6 w-full text-center border-t border-white/10">
+        <div class="text-[#ff9159] font-black font-headline text-4xl tracking-tighter uppercase">SEMA DÖNER</div>
+        <div class="flex gap-8">
+            <a class="text-gray-400 font-body text-xs tracking-tight hover:text-white transition-colors" href="impressum.html">IMPRESSUM</a>
+            <a class="text-gray-400 font-body text-xs tracking-tight hover:text-white transition-colors" href="datenschutz.html">DATENSCHUTZ</a>
+        </div>
+        <div class="space-y-2">
+            <p class="text-on-surface font-headline font-bold text-xl tracking-tighter">Tel: 02744 931678</p>
+            <p class="text-gray-500 font-body text-xs tracking-tight">MADE WITH LOVE IN HERDORF © 2025 SEMA DÖNER</p>
+        </div>
+    </footer>
+</body>
+</html>
