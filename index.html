@@ -115,12 +115,14 @@
         }
     </style>
 </head>
-<body class="font-body selection:bg-primary selection:text-on-primary-fixed bg-background text-on-surface max-w-[1440px] mx-auto relative shadow-2xl">
+<body class="font-body selection:bg-primary selection:text-on-primary-fixed bg-background text-on-surface">
+<div class="max-w-[1440px] mx-auto relative shadow-2xl bg-background min-h-screen overflow-x-hidden">
     <a href="#menu" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:p-4 focus:bg-primary focus:text-on-primary-fixed focus:font-headline focus:font-bold focus:outline-none focus:ring-2 focus:ring-white">Zum Menü springen</a>
 
     <!-- Header -->
-    <header class="fixed top-0 w-full max-w-[1440px] mx-auto right-0 left-0 z-50 bg-[#0e0e0e]/70 backdrop-blur-xl flex justify-between items-center px-6 h-16 shadow-[0_40px_40px_-15px_rgba(255,145,89,0.08)]">
-        <div class="flex items-center gap-4">
+    <header class="fixed top-0 w-full z-50 bg-[#0e0e0e]/70 backdrop-blur-xl flex justify-center px-6 h-16 shadow-[0_40px_40px_-15px_rgba(255,145,89,0.08)]">
+        <div class="w-full max-w-[1440px] flex justify-between items-center h-full">
+            <div class="flex items-center gap-4">
             <button id="mobile-menu-btn" aria-label="Menü öffnen" class="p-2 -ml-2 text-primary md:hidden focus:outline-none">
                 <span class="material-symbols-outlined pointer-events-none">menu</span>
             </button>
@@ -140,7 +142,8 @@
             <a href="#kontakt" class="font-headline font-bold text-on-surface hover:text-primary transition-colors py-2">Kontakt</a>
         </nav>
 
-        <a href="tel:02744931678" class="font-headline uppercase tracking-tighter font-bold text-primary hover:text-primary-fixed transition-colors active:scale-95 transition-transform py-2">02744 931678</a>
+            <a href="tel:02744931678" class="font-headline uppercase tracking-tighter font-bold text-primary hover:text-primary-fixed transition-colors active:scale-95 transition-transform py-2">02744 931678</a>
+        </div>
     </header>
 
     <!-- Mobile Slide-in Menu -->
@@ -361,7 +364,7 @@
     </footer>
 
     <!-- BottomNavBar (Mobile only) -->
-    <nav id="bottom-nav" class="md:hidden fixed bottom-0 w-full max-w-[1440px] mx-auto right-0 left-0 z-40 bg-[#0e0e0e]/70 backdrop-blur-xl flex justify-around items-center h-20 pb-safe border-t border-white/5 translate-y-full transition-transform duration-300">
+    <nav id="bottom-nav" class="md:hidden fixed bottom-0 w-full z-40 bg-[#0e0e0e]/70 backdrop-blur-xl flex justify-around items-center h-20 pb-safe border-t border-white/5 translate-y-full transition-transform duration-300">
         <a href="#menu" class="flex flex-col items-center justify-center w-full h-full text-gray-500 hover:text-primary active:scale-90 transition-all duration-200 min-h-[44px] min-w-[44px]">
             <span class="material-symbols-outlined">restaurant_menu</span>
             <span class="font-body text-[10px] uppercase font-bold tracking-widest mt-1">MENU</span>
@@ -818,5 +821,6 @@
             }
         });
     </script>
+</div>
 </body>
 </html>
