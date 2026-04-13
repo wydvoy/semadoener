@@ -10,7 +10,7 @@
     <meta property="og:image" content="https://lh3.googleusercontent.com/aida-public/AB6AXuDE9o7Qi-LXhWZq7vwCIFXbEgTsv2chkEpdPE0eWWmKm1tBLOB2q9l1sooCIAf9khXIxXD7swkAEI4754De5XXuop6NhIhG05YROq_ykDeW5qGC5fRcA9x0w7mkJV73fUaxtyEy6mZ70Y1Wv6rcVxB8WXHXvAelRmk1JKDUymEB3d9sMo03tOFAZipTzwxcXdVB5s0mnQCoPK41u09ET_QYm-8DHnWGtpFsk-limSBVyXzqA-0SpQ-ilIB4GMCVcBln-gNSFJS5hN4" />
     <meta property="og:type" content="restaurant.restaurant" />
     <meta property="og:locale" content="de_DE" />
-
+    
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -59,11 +59,39 @@
     </script>
 
     <link rel="preload" as="image" href="https://lh3.googleusercontent.com/aida-public/AB6AXuDE9o7Qi-LXhWZq7vwCIFXbEgTsv2chkEpdPE0eWWmKm1tBLOB2q9l1sooCIAf9khXIxXD7swkAEI4754De5XXuop6NhIhG05YROq_ykDeW5qGC5fRcA9x0w7mkJV73fUaxtyEy6mZ70Y1Wv6rcVxB8WXHXvAelRmk1JKDUymEB3d9sMo03tOFAZipTzwxcXdVB5s0mnQCoPK41u09ET_QYm-8DHnWGtpFsk-limSBVyXzqA-0SpQ-ilIB4GMCVcBln-gNSFJS5hN4"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;200;300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700;800;900&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 
-    <link rel="stylesheet" href="./style.css" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ff9159",
+                        "primary-fixed": "#ff7a2f",
+                        "on-primary-fixed": "#000000",
+                        "surface": "#0e0e0e",
+                        "surface-container": "#191919",
+                        "surface-container-high": "#1f1f1f",
+                        "surface-container-low": "#131313",
+                        "surface-container-lowest": "#000000",
+                        "on-surface": "#ffffff",
+                        "on-surface-variant": "#ababab",
+                        "background": "#0e0e0e"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Be Vietnam Pro"]
+                    }
+                }
+            }
+        }
+    </script>
     <style>
         html {
             scroll-behavior: smooth;
@@ -79,26 +107,44 @@
         .marquee-container { overflow: hidden; white-space: nowrap; }
         .marquee-content { display: inline-block; animation: marquee 20s linear infinite; }
         @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        body { background-color: #0e0e0e; color: #ffffff; min-height: max(884px, 100dvh); }
+        body {
+            background-color: #0e0e0e;
+            color: #ffffff;
+            min-height: max(884px, 100dvh);
+            border-top: 3px solid #ff9159; /* Signature accent line */
+        }
+
+        /* Grain texture — editorial depth, not glassmorphism */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            opacity: 0.035;
+            pointer-events: none;
+            z-index: 9998;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-size: 300px 300px;
+        }
 
         /* Fade-in on scroll styles */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-
         .fade-in-section {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-            will-change: opacity, visibility;
+            will-change: opacity, transform;
         }
         .fade-in-section.is-visible {
             opacity: 1;
             transform: none;
+        }
+
+        /* Section eyebrow rule */
+        .section-rule {
+            display: block;
+            width: 3rem;
+            height: 3px;
+            background-color: #ff9159;
+            margin-bottom: 1.5rem;
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -115,22 +161,20 @@
         }
     </style>
 </head>
-<body class="font-body selection:bg-primary selection:text-on-primary-fixed bg-background text-on-surface">
-<div class="max-w-[1440px] mx-auto relative shadow-2xl bg-background min-h-screen overflow-x-hidden">
+<body class="font-body selection:bg-primary selection:text-on-primary-fixed bg-background text-on-surface max-w-[1440px] mx-auto relative shadow-2xl">
     <a href="#menu" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:p-4 focus:bg-primary focus:text-on-primary-fixed focus:font-headline focus:font-bold focus:outline-none focus:ring-2 focus:ring-white">Zum Menü springen</a>
 
     <!-- Header -->
-    <header class="fixed top-0 w-full z-50 bg-[#0e0e0e]/70 backdrop-blur-xl flex justify-center px-6 h-16 shadow-[0_40px_40px_-15px_rgba(255,145,89,0.08)]">
-        <div class="w-full max-w-[1440px] flex justify-between items-center h-full">
-            <div class="flex items-center gap-4">
-            <button id="mobile-menu-btn" aria-label="Menü öffnen" class="p-2 -ml-2 text-primary md:hidden focus:outline-none">
+    <header class="fixed top-0 w-full max-w-[1440px] mx-auto right-0 left-0 z-50 bg-[#0e0e0e]/70 backdrop-blur-xl flex justify-between items-center px-6 h-16 shadow-[0_40px_40px_-15px_rgba(255,145,89,0.08)]">
+        <div class="flex items-center gap-4">
+            <button id="mobile-menu-btn" aria-label="Menü öffnen" class="p-3 -ml-3 min-w-[44px] min-h-[44px] flex items-center justify-center text-primary md:hidden focus:outline-none">
                 <span class="material-symbols-outlined pointer-events-none">menu</span>
             </button>
             <span class="text-xl font-black text-primary tracking-tighter font-headline uppercase">SEMA DÖNER</span>
             <!-- Open/Closed Badge -->
-            <div id="status-badge" class="hidden md:flex items-center gap-2 px-3 py-1 bg-surface-container rounded-full border border-white/10 text-xs font-bold font-headline uppercase tracking-widest ml-4 transition-colors">
-                <span class="status-dot w-2 h-2 rounded-full bg-gray-500"></span>
-                <span class="status-text text-gray-400">Lädt...</span>
+            <div id="status-badge" class="hidden md:flex items-center gap-2 px-3 py-1 bg-surface-container rounded-full border border-white/10 text-xs font-bold font-headline uppercase tracking-widest ml-4 transition-colors" aria-live="polite" aria-atomic="true">
+                <span class="status-dot w-2 h-2 rounded-full bg-on-surface-variant" aria-hidden="true"></span>
+                <span class="status-text text-on-surface-variant">Lädt...</span>
             </div>
         </div>
 
@@ -142,8 +186,7 @@
             <a href="#kontakt" class="font-headline font-bold text-on-surface hover:text-primary transition-colors py-2">Kontakt</a>
         </nav>
 
-            <a href="tel:02744931678" class="font-headline uppercase tracking-tighter font-bold text-primary hover:text-primary-fixed transition-colors active:scale-95 transition-transform py-2">02744 931678</a>
-        </div>
+        <a href="tel:02744931678" class="font-headline uppercase tracking-tighter font-bold text-primary hover:text-primary-fixed transition-colors active:scale-95 transition-transform py-2">02744 931678</a>
     </header>
 
     <!-- Mobile Slide-in Menu -->
@@ -155,12 +198,12 @@
                 <span class="material-symbols-outlined pointer-events-none">close</span>
             </button>
         </div>
-
+        
         <!-- Mobile Open/Closed Badge -->
         <div class="p-6 border-b border-white/5">
-            <div id="mobile-status-badge" class="inline-flex items-center gap-2 px-4 py-2 bg-surface-container rounded-full border border-white/10 text-xs font-bold font-headline uppercase tracking-widest">
-                <span class="status-dot w-2 h-2 rounded-full bg-gray-500"></span>
-                <span class="status-text text-gray-400">Lädt...</span>
+            <div id="mobile-status-badge" class="inline-flex items-center gap-2 px-4 py-2 bg-surface-container rounded-full border border-white/10 text-xs font-bold font-headline uppercase tracking-widest" aria-live="polite" aria-atomic="true">
+                <span class="status-dot w-2 h-2 rounded-full bg-on-surface-variant" aria-hidden="true"></span>
+                <span class="status-text text-on-surface-variant">Lädt...</span>
             </div>
         </div>
 
@@ -179,23 +222,24 @@
     </div>
 
     <!-- Hero Section -->
-    <section id="hero" class="relative min-h-[max(884px,100dvh)] w-full flex flex-col xl:flex-row overflow-hidden fade-in-section is-visible" aria-label="Hero Sektion">
+    <section id="hero" class="relative min-h-[600px] h-screen w-full flex flex-col xl:flex-row overflow-hidden fade-in-section is-visible" aria-label="Hero Sektion">
         <div class="absolute inset-0 xl:relative xl:w-[60%] xl:h-full z-0">
-            <img fetchpriority="high" class="w-full h-full object-cover opacity-60 xl:opacity-100 grayscale-[20%] xl:grayscale-0 contrast-125" alt="Close-up of a loaded döner kebab" width="1920" height="1080" sizes="(max-width: 1280px) 100vw, 60vw" srcset="https://lh3.googleusercontent.com/aida-public/AB6AXuDE9o7Qi-LXhWZq7vwCIFXbEgTsv2chkEpdPE0eWWmKm1tBLOB2q9l1sooCIAf9khXIxXD7swkAEI4754De5XXuop6NhIhG05YROq_ykDeW5qGC5fRcA9x0w7mkJV73fUaxtyEy6mZ70Y1Wv6rcVxB8WXHXvAelRmk1JKDUymEB3d9sMo03tOFAZipTzwxcXdVB5s0mnQCoPK41u09ET_QYm-8DHnWGtpFsk-limSBVyXzqA-0SpQ-ilIB4GMCVcBln-gNSFJS5hN4=w800 800w, https://lh3.googleusercontent.com/aida-public/AB6AXuDE9o7Qi-LXhWZq7vwCIFXbEgTsv2chkEpdPE0eWWmKm1tBLOB2q9l1sooCIAf9khXIxXD7swkAEI4754De5XXuop6NhIhG05YROq_ykDeW5qGC5fRcA9x0w7mkJV73fUaxtyEy6mZ70Y1Wv6rcVxB8WXHXvAelRmk1JKDUymEB3d9sMo03tOFAZipTzwxcXdVB5s0mnQCoPK41u09ET_QYm-8DHnWGtpFsk-limSBVyXzqA-0SpQ-ilIB4GMCVcBln-gNSFJS5hN4=w1200 1200w, https://lh3.googleusercontent.com/aida-public/AB6AXuDE9o7Qi-LXhWZq7vwCIFXbEgTsv2chkEpdPE0eWWmKm1tBLOB2q9l1sooCIAf9khXIxXD7swkAEI4754De5XXuop6NhIhG05YROq_ykDeW5qGC5fRcA9x0w7mkJV73fUaxtyEy6mZ70Y1Wv6rcVxB8WXHXvAelRmk1JKDUymEB3d9sMo03tOFAZipTzwxcXdVB5s0mnQCoPK41u09ET_QYm-8DHnWGtpFsk-limSBVyXzqA-0SpQ-ilIB4GMCVcBln-gNSFJS5hN4=w1920 1920w" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDE9o7Qi-LXhWZq7vwCIFXbEgTsv2chkEpdPE0eWWmKm1tBLOB2q9l1sooCIAf9khXIxXD7swkAEI4754De5XXuop6NhIhG05YROq_ykDeW5qGC5fRcA9x0w7mkJV73fUaxtyEy6mZ70Y1Wv6rcVxB8WXHXvAelRmk1JKDUymEB3d9sMo03tOFAZipTzwxcXdVB5s0mnQCoPK41u09ET_QYm-8DHnWGtpFsk-limSBVyXzqA-0SpQ-ilIB4GMCVcBln-gNSFJS5hN4=w1920"/>
+            <img fetchpriority="high" width="1200" height="800" class="w-full h-full object-cover opacity-60 xl:opacity-100 grayscale-[20%] xl:grayscale-0 contrast-125" alt="Close-up of a loaded döner kebab" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDE9o7Qi-LXhWZq7vwCIFXbEgTsv2chkEpdPE0eWWmKm1tBLOB2q9l1sooCIAf9khXIxXD7swkAEI4754De5XXuop6NhIhG05YROq_ykDeW5qGC5fRcA9x0w7mkJV73fUaxtyEy6mZ70Y1Wv6rcVxB8WXHXvAelRmk1JKDUymEB3d9sMo03tOFAZipTzwxcXdVB5s0mnQCoPK41u09ET_QYm-8DHnWGtpFsk-limSBVyXzqA-0SpQ-ilIB4GMCVcBln-gNSFJS5hN4"/>
             <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40 xl:hidden"></div>
         </div>
         <div class="relative z-10 flex flex-col justify-center items-center xl:items-start text-center xl:text-left px-4 xl:px-12 w-full xl:w-[40%] h-full bg-background/50 xl:bg-transparent">
-            <div class="mb-8 flex items-center gap-2 px-4 py-2 bg-surface-container rounded-full border border-white/10 hover:border-white/30 transition-colors cursor-pointer" onclick="window.open('https://google.com', '_blank')">
-                <span class="font-headline font-bold text-white text-sm">4,6</span>
-                <span class="text-primary text-sm">★</span>
-                <span class="font-body text-gray-400 text-xs tracking-tight">567 Google Reviews</span>
-            </div>
-            <p class="font-headline font-bold text-primary tracking-[0.3em] uppercase mb-4 text-xs md:text-base">Food Factory by Musty</p>
-            <h1 class="font-headline font-black text-6xl md:text-[8rem] xl:text-[7rem] leading-[0.85] tracking-tighter uppercase break-words">
+            <a href="https://www.google.com/maps/search/?api=1&query=Sema+Döner+Herdorf" target="_blank" rel="noopener noreferrer" aria-label="4,6 Sterne – 567 Google-Bewertungen ansehen" class="mb-8 flex items-center gap-2 px-4 py-2 bg-surface-container rounded-full border border-white/10 hover:border-white/30 transition-colors">
+                <span class="font-headline font-bold text-white text-sm" aria-hidden="true">4,6</span>
+                <span class="text-primary text-sm" aria-hidden="true">★</span>
+                <span class="font-body text-on-surface-variant text-xs tracking-tight">567 Google Reviews</span>
+            </a>
+            <span class="section-rule" aria-hidden="true"></span>
+            <p class="font-headline font-bold text-primary tracking-[0.3em] uppercase mb-4 text-xs md:text-sm">Food Factory by Musty</p>
+            <h1 class="font-headline font-black text-7xl md:text-[9rem] xl:text-[9rem] leading-[0.82] tracking-[-0.03em] uppercase break-words">
                 SEMA<br/><span class="text-primary">DÖNER</span>
             </h1>
             <div class="mt-12 w-full max-w-md hidden xl:block">
-                <a href="tel:02744931678" class="w-full py-6 bg-primary text-on-primary-fixed font-headline font-extrabold text-xl tracking-widest uppercase hover:bg-gradient-to-r hover:from-[#ff9159] hover:to-[#ff7a2f] hover:scale-[1.03] transition-all active:scale-95 shadow-2xl text-center block">
+                <a href="tel:02744931678" class="w-full py-6 bg-primary text-on-primary-fixed font-headline font-extrabold text-xl tracking-widest uppercase hover:bg-primary-fixed transition-colors active:scale-95 text-center block">
                     BESTELLEN
                 </a>
             </div>
@@ -203,14 +247,14 @@
 
         <!-- Sticky Floating CTA -->
         <div class="absolute bottom-24 md:bottom-12 left-0 w-full flex justify-center z-20 px-6 xl:hidden">
-            <a href="tel:02744931678" class="w-full max-w-md py-6 bg-primary text-on-primary-fixed font-headline font-extrabold text-xl tracking-widest uppercase hover:bg-gradient-to-r hover:from-[#ff9159] hover:to-[#ff7a2f] hover:scale-[1.03] transition-all active:scale-95 shadow-2xl text-center block">
+            <a href="tel:02744931678" class="w-full max-w-md py-6 bg-primary text-on-primary-fixed font-headline font-extrabold text-xl tracking-widest uppercase hover:bg-primary-fixed transition-colors active:scale-95 text-center block">
                 BESTELLEN
             </a>
         </div>
     </section>
 
     <!-- Scrolling Marquee -->
-    <div class="bg-primary py-4 marquee-container relative z-30 border-y border-on-primary-fixed/10">
+    <div class="bg-primary py-4 marquee-container relative z-30 border-y border-on-primary-fixed/10" aria-hidden="true">
         <div class="marquee-content font-headline font-black text-2xl md:text-4xl text-on-primary-fixed uppercase tracking-tighter">
             FRISCH GEGRILLT • HALAL • SEIT JAHREN IN HERDORF • 4,6 ★ GOOGLE • FRISCH GEGRILLT • HALAL • SEIT JAHREN IN HERDORF • 4,6 ★ GOOGLE • FRISCH GEGRILLT • HALAL • SEIT JAHREN IN HERDORF • 4,6 ★ GOOGLE •
         </div>
@@ -219,33 +263,164 @@
     <!-- Menu Section -->
     <section id="menu" class="py-24 px-6 bg-surface fade-in-section" aria-label="Menü Sektion">
         <div class="max-w-7xl mx-auto">
-            <h2 class="font-headline font-black text-6xl md:text-9xl tracking-tighter uppercase mb-12 leading-none">
+            <span class="section-rule" aria-hidden="true"></span>
+            <h2 class="font-headline font-black text-6xl md:text-9xl tracking-[-0.03em] uppercase mb-10 leading-[0.85]">
                 WAS WILLST<br/><span class="text-primary">DU?</span>
             </h2>
 
             <!-- Tabs -->
-            <div class="flex overflow-x-auto gap-4 pb-8 no-scrollbar mb-12" id="menu-tabs">
-                <button data-filter="all" class="menu-tab px-8 py-3 bg-primary text-on-primary-fixed font-headline font-bold uppercase whitespace-nowrap transition-colors">Alle</button>
-                <button data-filter="doener" class="menu-tab px-8 py-3 bg-surface-container text-on-surface font-headline font-bold uppercase whitespace-nowrap hover:bg-surface-container-high transition-colors">Döner</button>
-                <button data-filter="duerum" class="menu-tab px-8 py-3 bg-surface-container text-on-surface font-headline font-bold uppercase whitespace-nowrap hover:bg-surface-container-high transition-colors">Dürüm</button>
-                <button data-filter="chili-cheese" class="menu-tab px-8 py-3 bg-surface-container text-on-surface font-headline font-bold uppercase whitespace-nowrap hover:bg-surface-container-high transition-colors">Chili Cheese</button>
-                <button data-filter="vegetarisch" class="menu-tab px-8 py-3 bg-surface-container text-on-surface font-headline font-bold uppercase whitespace-nowrap hover:bg-surface-container-high transition-colors">Vegetarisch</button>
-                <button data-filter="getraenke" class="menu-tab px-8 py-3 bg-surface-container text-on-surface font-headline font-bold uppercase whitespace-nowrap hover:bg-surface-container-high transition-colors">Getränke</button>
+            <div class="flex overflow-x-auto gap-2 pb-8 no-scrollbar mb-10" id="menu-tabs">
+                <button data-filter="all" aria-pressed="true" class="menu-tab px-8 py-3 bg-primary text-on-primary-fixed font-headline font-bold uppercase whitespace-nowrap transition-colors">Alle</button>
+                <button data-filter="doener" aria-pressed="false" class="menu-tab px-8 py-3 bg-surface-container text-on-surface font-headline font-bold uppercase whitespace-nowrap hover:bg-surface-container-high transition-colors">Döner</button>
+                <button data-filter="duerum" aria-pressed="false" class="menu-tab px-8 py-3 bg-surface-container text-on-surface font-headline font-bold uppercase whitespace-nowrap hover:bg-surface-container-high transition-colors">Dürüm</button>
+                <button data-filter="chili-cheese" aria-pressed="false" class="menu-tab px-8 py-3 bg-surface-container text-on-surface font-headline font-bold uppercase whitespace-nowrap hover:bg-surface-container-high transition-colors">Chili Cheese</button>
+                <button data-filter="vegetarisch" aria-pressed="false" class="menu-tab px-8 py-3 bg-surface-container text-on-surface font-headline font-bold uppercase whitespace-nowrap hover:bg-surface-container-high transition-colors">Vegetarisch</button>
+                <button data-filter="getraenke" aria-pressed="false" class="menu-tab px-8 py-3 bg-surface-container text-on-surface font-headline font-bold uppercase whitespace-nowrap hover:bg-surface-container-high transition-colors">Getränke</button>
             </div>
 
             <!-- Menu Grid -->
-            <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-12" id="menu-grid">
-                <!-- Menu items will be dynamically injected here by JavaScript -->
-                <!-- Fallback menu items for no-js environments or SEO -->
-                <noscript>
-                    <div class="menu-item bg-surface-container">
-                        <div class="p-6">
-                            <h3 class="font-headline font-bold text-2xl uppercase text-primary">Klassik Döner</h3>
-                            <p class="text-on-surface-variant text-sm mt-2">Kalbfleisch, Salat, Zwiebeln, Tomaten und Mustys Spezialsauce.</p>
-                        </div>
-                    </div>
-                </noscript>
+            <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6" id="menu-grid" aria-live="polite" aria-label="Menüartikel">
 
+                <!-- HERO: Klassik Döner — featured, spans 2 cols on md+ -->
+                <div class="menu-item flex-col bg-surface-container group hover:bg-surface-container-high transition-all duration-500 md:col-span-2 overflow-hidden" role="article" data-category="doener">
+                    <div class="relative h-56 md:h-72 overflow-hidden flex-shrink-0">
+                        <img loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Klassik Döner — frisches Kalbfleisch mit Salat, Zwiebeln und Mustys Spezialsauce" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsB6-C4rF3VZtdZYXhN9DFGTHis2uiBkxYVyvyXGDtiGZ8krleSZ8cw9DgDb286x85QV_si2oc-Zi6Szmac7VCJQTgLx7hjiiR-lcEL9ISyYOB_3U6ockB41Z6eSCPeKTTGb8tXtF2RwS0xgWlezjlYtpCTvktNGjwQk874IWejwxXqeRSIvWy8h5cAOHaxRtWh72He-7ICip1DvhDkfbcddoKp__nn_8z0g3TystSsDSwTKyKIOtaMlzbyBNAlC7QZFZjsefzJB8"/>
+                    </div>
+                    <div class="p-6 md:p-8 flex items-start md:items-end justify-between gap-6 w-full">
+                        <div>
+                            <p class="font-headline font-bold text-primary text-xs uppercase tracking-[0.25em] mb-2">Der Klassiker</p>
+                            <h3 class="font-headline font-black text-3xl md:text-4xl uppercase tracking-tighter">Klassik Döner</h3>
+                            <p class="text-on-surface-variant font-body text-sm mt-2 max-w-sm">Kalbfleisch, Salat, Zwiebeln, Tomaten und Mustys Spezialsauce.</p>
+                        </div>
+                        <span class="font-headline font-black text-4xl md:text-5xl text-primary flex-shrink-0">7,50 €</span>
+                    </div>
+                </div>
+
+                <!-- Sema Teller -->
+                <div class="menu-item flex bg-surface-container group hover:bg-surface-container-high transition-all duration-300" role="article" data-category="doener">
+                    <div class="w-28 md:w-32 flex-shrink-0 bg-surface-container-high flex items-center justify-center">
+                        <span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors" aria-hidden="true">kebab_dining</span>
+                    </div>
+                    <div class="p-5 flex flex-col justify-between w-full min-w-0">
+                        <div>
+                            <h3 class="font-headline font-bold text-xl uppercase tracking-tighter group-hover:text-primary transition-colors">Sema Teller</h3>
+                            <p class="text-on-surface-variant font-body text-xs mt-1 line-clamp-2">Große Portion Fleisch, Pommes oder Reis, Beilagensalat und Tzatziki.</p>
+                        </div>
+                        <span class="font-headline font-black text-2xl text-primary mt-3">11,00 €</span>
+                    </div>
+                </div>
+
+                <!-- Döner Box -->
+                <div class="menu-item flex bg-surface-container group hover:bg-surface-container-high transition-all duration-300" role="article" data-category="doener">
+                    <div class="w-28 md:w-32 flex-shrink-0 bg-surface-container-high flex items-center justify-center">
+                        <span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors" aria-hidden="true">kebab_dining</span>
+                    </div>
+                    <div class="p-5 flex flex-col justify-between w-full min-w-0">
+                        <div>
+                            <h3 class="font-headline font-bold text-xl uppercase tracking-tighter group-hover:text-primary transition-colors">Döner Box</h3>
+                            <p class="text-on-surface-variant font-body text-xs mt-1 line-clamp-2">Fleisch nach Wahl, Pommes und Sauce in der praktischen Box.</p>
+                        </div>
+                        <span class="font-headline font-black text-2xl text-primary mt-3">6,50 €</span>
+                    </div>
+                </div>
+
+                <!-- Big Dürüm -->
+                <div class="menu-item flex bg-surface-container group hover:bg-surface-container-high transition-all duration-300" role="article" data-category="duerum">
+                    <div class="w-28 md:w-32 flex-shrink-0 overflow-hidden">
+                        <img loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Big Dürüm — Extra viel Fleisch im dünnen Fladenbrot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCntW-qZHCa2FLOZ_wLdK-TtcOBd9TBau0lIYm_DWSo0uJLOUHNgAlyfqLRt-PhXdjmrXBXYoy3xpnmZIncvBbnm7Ov3T0yXFgHWmuf-4NHCAhJlo-Tujg3oUUZFgoXPFeStOxvIP3uc4DBVpmLJ8jaVuVuIW8zaV-YL0otslMElXTHes-W9XOomPZM0U_N5yrZkGdmYf1xKHIJy2bPETYgaJInqmEgb0_JD29p7q8r1qXYmVkcKmFcb8xwsWNctfSED4E6k64DQe8"/>
+                    </div>
+                    <div class="p-5 flex flex-col justify-between w-full min-w-0">
+                        <div>
+                            <h3 class="font-headline font-bold text-xl uppercase tracking-tighter group-hover:text-primary transition-colors">Big Dürüm</h3>
+                            <p class="text-on-surface-variant font-body text-xs mt-1 line-clamp-2">Extra viel Fleisch, dünnes Fladenbrot, doppelt Sauce.</p>
+                        </div>
+                        <span class="font-headline font-black text-2xl text-primary mt-3">8,50 €</span>
+                    </div>
+                </div>
+
+                <!-- Lahmacun -->
+                <div class="menu-item flex bg-surface-container group hover:bg-surface-container-high transition-all duration-300" role="article" data-category="duerum">
+                    <div class="w-28 md:w-32 flex-shrink-0 bg-surface-container-high flex items-center justify-center">
+                        <span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors" aria-hidden="true">bakery_dining</span>
+                    </div>
+                    <div class="p-5 flex flex-col justify-between w-full min-w-0">
+                        <div>
+                            <h3 class="font-headline font-bold text-xl uppercase tracking-tighter group-hover:text-primary transition-colors">Lahmacun</h3>
+                            <p class="text-on-surface-variant font-body text-xs mt-1 line-clamp-2">Türkische Pizza mit Fleisch, Salat und Spezialsauce gerollt.</p>
+                        </div>
+                        <span class="font-headline font-black text-2xl text-primary mt-3">8,00 €</span>
+                    </div>
+                </div>
+
+                <!-- Chili Cheese Box -->
+                <div class="menu-item flex bg-surface-container group hover:bg-surface-container-high transition-all duration-300" role="article" data-category="chili-cheese">
+                    <div class="w-28 md:w-32 flex-shrink-0 overflow-hidden">
+                        <img loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Chili Cheese Box mit Pommes, Fleisch und Chili-Cheese Sauce" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUsOIXEYln3K9YRKr3YJJl20Mqd6R8HRMPbjXywyBRDdmDJ99UNAzOwvc-aoGcMMspJckiP6jv3UeU3oCwqX9SrzsAwp6qqQ2bSNPIUFjuhQjo5ZaBywxXcdF82Zqm8W9Y7J3r4MaJmH_pBFuZ4FnNsF224jzrIaItLfHS0nJJbTI5Smc_LVwYE7qOeXqYl1WevXvoi1i-E-TeodTmAfBZhVoafvJcSH9eYEzGOy2i0_L5PNrryT4hJsp2bbCr09CTDAp_Z4zEZ_0"/>
+                    </div>
+                    <div class="p-5 flex flex-col justify-between w-full min-w-0">
+                        <div>
+                            <h3 class="font-headline font-bold text-xl uppercase tracking-tighter group-hover:text-primary transition-colors">Chili Cheese Box</h3>
+                            <p class="text-on-surface-variant font-body text-xs mt-1 line-clamp-2">Pommes, Fleisch und unsere legendäre Chili-Cheese Sauce.</p>
+                        </div>
+                        <span class="font-headline font-black text-2xl text-primary mt-3">9,00 €</span>
+                    </div>
+                </div>
+
+                <!-- Chili Cheese Dürüm -->
+                <div class="menu-item flex bg-surface-container group hover:bg-surface-container-high transition-all duration-300" role="article" data-category="chili-cheese">
+                    <div class="w-28 md:w-32 flex-shrink-0 bg-surface-container-high flex items-center justify-center">
+                        <span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors" aria-hidden="true">local_pizza</span>
+                    </div>
+                    <div class="p-5 flex flex-col justify-between w-full min-w-0">
+                        <div>
+                            <h3 class="font-headline font-bold text-xl uppercase tracking-tighter group-hover:text-primary transition-colors">Chili Cheese Dürüm</h3>
+                            <p class="text-on-surface-variant font-body text-xs mt-1 line-clamp-2">Dürüm gefüllt mit Fleisch, Jalapeños und flüssigem Chili Cheese.</p>
+                        </div>
+                        <span class="font-headline font-black text-2xl text-primary mt-3">9,50 €</span>
+                    </div>
+                </div>
+
+                <!-- Veggi Döner -->
+                <div class="menu-item flex bg-surface-container group hover:bg-surface-container-high transition-all duration-300" role="article" data-category="vegetarisch">
+                    <div class="w-28 md:w-32 flex-shrink-0 overflow-hidden">
+                        <img loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Veggi Döner mit Halloumi und Grillgemüse" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0KCcf1Tp7hCjc_O5arj7GlNscs_LvVOxiMzUTY1pIaG2tzOm1X_XTnZAzNQRw90kNZwkvMOhtRIUo2E0dfzdIge1-wB_fOF-yrvJlyJB_DTTYgKP9ALS8AZ4_L4dWRhAXjv5Q5LrEi94lQckTBWvMWMWjrsOce_tLJ3ytatmEi5CuBpulstl7vXueQB527SPw-U8jOqIjZRoVYFpw8kOhJ0lNrLvVHcpG80EIgQ4oI1f7vM60e2MIWb4Kar3H8XRbw1vuPmxq1nA"/>
+                    </div>
+                    <div class="p-5 flex flex-col justify-between w-full min-w-0">
+                        <div>
+                            <h3 class="font-headline font-bold text-xl uppercase tracking-tighter group-hover:text-primary transition-colors">Veggi Döner</h3>
+                            <p class="text-on-surface-variant font-body text-xs mt-1 line-clamp-2">Hausgemachter Halloumi, Grillgemüse und Joghurt-Minz Sauce.</p>
+                        </div>
+                        <span class="font-headline font-black text-2xl text-primary mt-3">7,00 €</span>
+                    </div>
+                </div>
+
+                <!-- Falafel Dürüm -->
+                <div class="menu-item flex bg-surface-container group hover:bg-surface-container-high transition-all duration-300" role="article" data-category="vegetarisch">
+                    <div class="w-28 md:w-32 flex-shrink-0 bg-surface-container-high flex items-center justify-center">
+                        <span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors" aria-hidden="true">eco</span>
+                    </div>
+                    <div class="p-5 flex flex-col justify-between w-full min-w-0">
+                        <div>
+                            <h3 class="font-headline font-bold text-xl uppercase tracking-tighter group-hover:text-primary transition-colors">Falafel Dürüm</h3>
+                            <p class="text-on-surface-variant font-body text-xs mt-1 line-clamp-2">Knusprige Falafel, frischer Salat und Hummus im dünnen Fladenbrot.</p>
+                        </div>
+                        <span class="font-headline font-black text-2xl text-primary mt-3">7,50 €</span>
+                    </div>
+                </div>
+
+                <!-- Softdrinks — list row, full width, no card -->
+                <div class="menu-item md:col-span-2 xl:col-span-3 border-t border-white/10 pt-5" role="article" data-category="getraenke">
+                    <div class="flex items-center justify-between py-2 w-full">
+                        <div class="flex items-center gap-4">
+                            <span class="material-symbols-outlined text-on-surface-variant text-2xl" aria-hidden="true">local_drink</span>
+                            <div>
+                                <h3 class="font-headline font-bold text-xl uppercase tracking-tighter">Softdrinks</h3>
+                                <p class="text-on-surface-variant font-body text-sm">Cola, Fanta, Sprite, Ayran, Wasser</p>
+                            </div>
+                        </div>
+                        <span class="font-headline font-black text-2xl text-primary flex-shrink-0">2,50 €</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -254,32 +429,33 @@
     <section id="reviews" class="py-24 px-6 bg-surface-container-low overflow-hidden fade-in-section" aria-label="Street Vibes Sektion">
         <div class="max-w-7xl mx-auto">
             <div class="flex justify-between items-end mb-12">
-                <h2 class="font-headline font-black text-4xl md:text-7xl tracking-tighter uppercase leading-none">
+                <h2 class="font-headline font-black text-4xl md:text-7xl tracking-[-0.03em] uppercase leading-[0.85]">
+                    <span class="section-rule" aria-hidden="true"></span>
                     STREET<br/><span class="text-primary">VIBES</span>
                 </h2>
                 <a class="font-headline font-bold text-primary underline underline-offset-8 tracking-tight hover:text-white transition-colors" href="https://instagram.com/semadoener_musty" target="_blank" rel="noopener">@SEMADOENER_MUSTY</a>
             </div>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div class="aspect-square bg-surface-container overflow-hidden relative group">
-                    <img loading="lazy" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100" alt="Grill meat" width="800" height="800" sizes="(max-width: 768px) 50vw, 25vw" srcset="https://lh3.googleusercontent.com/aida-public/AB6AXuAi3Tf_ZFBFyzvYLIek73-eJxMOGj5HwHuFq7O_-xZEZ3AVoIqeD90uBu00wz7AIxDzXCby_mG3d0LemfvxvJCNp2f7pcUv4NhfIyde_1exnqLQDb2_xeeX1NLw6uwb329XVjlhfWQ5vVS_nOobv3_4iQ_OE2Ya5Zm9Dxxk4rR6Gs5MksG4rQu0vLekJ4TIUSI4iG25eDwYHFKanex2N7np0Eu7TBni-y5SIZPFd_WkSjEw0hEA0ngdC73uAzPnxy5IVExVBZbq020=w400 400w, https://lh3.googleusercontent.com/aida-public/AB6AXuAi3Tf_ZFBFyzvYLIek73-eJxMOGj5HwHuFq7O_-xZEZ3AVoIqeD90uBu00wz7AIxDzXCby_mG3d0LemfvxvJCNp2f7pcUv4NhfIyde_1exnqLQDb2_xeeX1NLw6uwb329XVjlhfWQ5vVS_nOobv3_4iQ_OE2Ya5Zm9Dxxk4rR6Gs5MksG4rQu0vLekJ4TIUSI4iG25eDwYHFKanex2N7np0Eu7TBni-y5SIZPFd_WkSjEw0hEA0ngdC73uAzPnxy5IVExVBZbq020=w800 800w" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAi3Tf_ZFBFyzvYLIek73-eJxMOGj5HwHuFq7O_-xZEZ3AVoIqeD90uBu00wz7AIxDzXCby_mG3d0LemfvxvJCNp2f7pcUv4NhfIyde_1exnqLQDb2_xeeX1NLw6uwb329XVjlhfWQ5vVS_nOobv3_4iQ_OE2Ya5Zm9Dxxk4rR6Gs5MksG4rQu0vLekJ4TIUSI4iG25eDwYHFKanex2N7np0Eu7TBni-y5SIZPFd_WkSjEw0hEA0ngdC73uAzPnxy5IVExVBZbq020=w800"/>
+                    <img loading="lazy" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100" alt="Grill meat" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAi3Tf_ZFBFyzvYLIek73-eJxMOGj5HwHuFq7O_-xZEZ3AVoIqeD90uBu00wz7AIxDzXCby_mG3d0LemfvxvJCNp2f7pcUv4NhfIyde_1exnqLQDb2_xeeX1NLw6uwb329XVjlhfWQ5vVS_nOobv3_4iQ_OE2Ya5Zm9Dxxk4rR6Gs5MksG4rQu0vLekJ4TIUSI4iG25eDwYHFKanex2N7np0Eu7TBni-y5SIZPFd_WkSjEw0hEA0ngdC73uAzPnxy5IVExVBZbq020"/>
                     <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center pointer-events-none">
                         <span class="font-headline font-bold text-white text-xl md:text-2xl tracking-widest uppercase translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Fresh</span>
                     </div>
                 </div>
                 <div class="aspect-square bg-surface-container overflow-hidden relative group">
-                    <img loading="lazy" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100" alt="Customer eating wrap" width="800" height="800" sizes="(max-width: 768px) 50vw, 25vw" srcset="https://lh3.googleusercontent.com/aida-public/AB6AXuARevjtO7zsx_9Vf_8cUp12NHDasrtNeXOmF4fcUfac78qdJto_WUIzvm2m56YWhymKMiokUwjjWIm74-wGk84OglhjuO_D5r-E0-mQ3g3qFHT9n7uCs0MY6pH4quqlaU-k1m6mIvNKBH24_pRImciGqb9kwPHEtltegy4XsyyeHB1Qg6QHbfMy-cxpZ37YqeiANHob8LXt4SV4cL3Jlxikk9N8b5PyFC2p6ZUn3tz8CqDjoqtniiZ4ZsE9l3eqx03x16udFd0EJ3k=w400 400w, https://lh3.googleusercontent.com/aida-public/AB6AXuARevjtO7zsx_9Vf_8cUp12NHDasrtNeXOmF4fcUfac78qdJto_WUIzvm2m56YWhymKMiokUwjjWIm74-wGk84OglhjuO_D5r-E0-mQ3g3qFHT9n7uCs0MY6pH4quqlaU-k1m6mIvNKBH24_pRImciGqb9kwPHEtltegy4XsyyeHB1Qg6QHbfMy-cxpZ37YqeiANHob8LXt4SV4cL3Jlxikk9N8b5PyFC2p6ZUn3tz8CqDjoqtniiZ4ZsE9l3eqx03x16udFd0EJ3k=w800 800w" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARevjtO7zsx_9Vf_8cUp12NHDasrtNeXOmF4fcUfac78qdJto_WUIzvm2m56YWhymKMiokUwjjWIm74-wGk84OglhjuO_D5r-E0-mQ3g3qFHT9n7uCs0MY6pH4quqlaU-k1m6mIvNKBH24_pRImciGqb9kwPHEtltegy4XsyyeHB1Qg6QHbfMy-cxpZ37YqeiANHob8LXt4SV4cL3Jlxikk9N8b5PyFC2p6ZUn3tz8CqDjoqtniiZ4ZsE9l3eqx03x16udFd0EJ3k=w800"/>
+                    <img loading="lazy" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100" alt="Customer eating wrap" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARevjtO7zsx_9Vf_8cUp12NHDasrtNeXOmF4fcUfac78qdJto_WUIzvm2m56YWhymKMiokUwjjWIm74-wGk84OglhjuO_D5r-E0-mQ3g3qFHT9n7uCs0MY6pH4quqlaU-k1m6mIvNKBH24_pRImciGqb9kwPHEtltegy4XsyyeHB1Qg6QHbfMy-cxpZ37YqeiANHob8LXt4SV4cL3Jlxikk9N8b5PyFC2p6ZUn3tz8CqDjoqtniiZ4ZsE9l3eqx03x16udFd0EJ3k"/>
                     <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center pointer-events-none">
                         <span class="font-headline font-bold text-white text-xl md:text-2xl tracking-widest uppercase translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Vibes</span>
                     </div>
                 </div>
                 <div class="aspect-square bg-surface-container overflow-hidden relative group">
-                    <img loading="lazy" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100" alt="Neon signs" width="800" height="800" sizes="(max-width: 768px) 50vw, 25vw" srcset="https://lh3.googleusercontent.com/aida-public/AB6AXuDpB07JC663EWD5wJ1aO5Hja3sJvgz6cyhVdt92TytUKicPZIh6UIowBj2w6-nJlegnEdeWCekPulEWYHMVsZUAY3-rgAhc_96gzGZjZ1iz90IwCtQG9DtRTVVbsj1orruYpCq0ZiNey8rvGiCqPmzTpjxeN0LgcSVNnm3awE4rAyU8oxlyC3SCL9tLt-d1Drw2z7D9YX_Grk4Y36JhlfbpbgmLcYN0fWYHwl5WQkPhkFavXm6sqkW253Qv519BIzu6ScUHrsu76Z0=w400 400w, https://lh3.googleusercontent.com/aida-public/AB6AXuDpB07JC663EWD5wJ1aO5Hja3sJvgz6cyhVdt92TytUKicPZIh6UIowBj2w6-nJlegnEdeWCekPulEWYHMVsZUAY3-rgAhc_96gzGZjZ1iz90IwCtQG9DtRTVVbsj1orruYpCq0ZiNey8rvGiCqPmzTpjxeN0LgcSVNnm3awE4rAyU8oxlyC3SCL9tLt-d1Drw2z7D9YX_Grk4Y36JhlfbpbgmLcYN0fWYHwl5WQkPhkFavXm6sqkW253Qv519BIzu6ScUHrsu76Z0=w800 800w" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpB07JC663EWD5wJ1aO5Hja3sJvgz6cyhVdt92TytUKicPZIh6UIowBj2w6-nJlegnEdeWCekPulEWYHMVsZUAY3-rgAhc_96gzGZjZ1iz90IwCtQG9DtRTVVbsj1orruYpCq0ZiNey8rvGiCqPmzTpjxeN0LgcSVNnm3awE4rAyU8oxlyC3SCL9tLt-d1Drw2z7D9YX_Grk4Y36JhlfbpbgmLcYN0fWYHwl5WQkPhkFavXm6sqkW253Qv519BIzu6ScUHrsu76Z0=w800"/>
+                    <img loading="lazy" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100" alt="Neon signs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpB07JC663EWD5wJ1aO5Hja3sJvgz6cyhVdt92TytUKicPZIh6UIowBj2w6-nJlegnEdeWCekPulEWYHMVsZUAY3-rgAhc_96gzGZjZ1iz90IwCtQG9DtRTVVbsj1orruYpCq0ZiNey8rvGiCqPmzTpjxeN0LgcSVNnm3awE4rAyU8oxlyC3SCL9tLt-d1Drw2z7D9YX_Grk4Y36JhlfbpbgmLcYN0fWYHwl5WQkPhkFavXm6sqkW253Qv519BIzu6ScUHrsu76Z0"/>
                     <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center pointer-events-none">
                         <span class="font-headline font-bold text-white text-xl md:text-2xl tracking-widest uppercase translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Night</span>
                     </div>
                 </div>
                 <div class="aspect-square bg-surface-container overflow-hidden relative group">
-                    <img loading="lazy" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100" alt="Salad toppings" width="800" height="800" sizes="(max-width: 768px) 50vw, 25vw" srcset="https://lh3.googleusercontent.com/aida-public/AB6AXuCd0ruIHieIunHh67zRADuCPtrzMUAmOGnZ002cDOUvFT8jJAhjA5iVsrHR8zqT06-MlgORUTdrWjGYlT0goyNcxy_iaYbBPZV1-S-dvLIuUZggT1iVAreDKvCynz3EHcw2ihpuj2WvpYQzslICs6kldQB5RBfWLvgKfCIHrtRTvdxuC4giwZ4mT0a-3iQHAnox6j6m13XJ0-ftS7MFBF3_K8tOropLraM-8BXzDanH0hk7RpXqBLjiM079l-gfGSgibUudWWIAdyU=w400 400w, https://lh3.googleusercontent.com/aida-public/AB6AXuCd0ruIHieIunHh67zRADuCPtrzMUAmOGnZ002cDOUvFT8jJAhjA5iVsrHR8zqT06-MlgORUTdrWjGYlT0goyNcxy_iaYbBPZV1-S-dvLIuUZggT1iVAreDKvCynz3EHcw2ihpuj2WvpYQzslICs6kldQB5RBfWLvgKfCIHrtRTvdxuC4giwZ4mT0a-3iQHAnox6j6m13XJ0-ftS7MFBF3_K8tOropLraM-8BXzDanH0hk7RpXqBLjiM079l-gfGSgibUudWWIAdyU=w800 800w" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd0ruIHieIunHh67zRADuCPtrzMUAmOGnZ002cDOUvFT8jJAhjA5iVsrHR8zqT06-MlgORUTdrWjGYlT0goyNcxy_iaYbBPZV1-S-dvLIuUZggT1iVAreDKvCynz3EHcw2ihpuj2WvpYQzslICs6kldQB5RBfWLvgKfCIHrtRTvdxuC4giwZ4mT0a-3iQHAnox6j6m13XJ0-ftS7MFBF3_K8tOropLraM-8BXzDanH0hk7RpXqBLjiM079l-gfGSgibUudWWIAdyU=w800"/>
+                    <img loading="lazy" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100" alt="Salad toppings" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd0ruIHieIunHh67zRADuCPtrzMUAmOGnZ002cDOUvFT8jJAhjA5iVsrHR8zqT06-MlgORUTdrWjGYlT0goyNcxy_iaYbBPZV1-S-dvLIuUZggT1iVAreDKvCynz3EHcw2ihpuj2WvpYQzslICs6kldQB5RBfWLvgKfCIHrtRTvdxuC4giwZ4mT0a-3iQHAnox6j6m13XJ0-ftS7MFBF3_K8tOropLraM-8BXzDanH0hk7RpXqBLjiM079l-gfGSgibUudWWIAdyU"/>
                     <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center pointer-events-none">
                         <span class="font-headline font-bold text-white text-xl md:text-2xl tracking-widest uppercase translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Quality</span>
                     </div>
@@ -292,25 +468,26 @@
     <section id="kontakt" class="py-24 px-6 bg-surface-container-lowest fade-in-section" aria-label="Kontakt und Standort Sektion">
         <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
             <div>
-                <h2 class="font-headline font-black text-6xl md:text-8xl tracking-tighter uppercase mb-8">
+                <h2 class="font-headline font-black text-6xl md:text-8xl tracking-[-0.03em] uppercase mb-8 leading-[0.85]">
+                    <span class="section-rule" aria-hidden="true"></span>
                     FIND <span class="text-primary">US</span>
                 </h2>
                 <div class="space-y-8">
                     <div>
-                        <h3 class="font-headline font-bold text-primary uppercase tracking-widest text-sm mb-2">Location</h3>
+                        <p class="font-headline font-bold text-primary uppercase tracking-widest text-sm mb-2">Location</p>
                         <p class="text-3xl font-headline font-medium">Hauptstraße 63,<br/>57562 Herdorf</p>
                     </div>
                     <div class="grid grid-cols-3 gap-4">
                         <div>
-                            <h3 class="font-headline font-bold text-primary uppercase tracking-widest text-sm mb-2">Mo - Do</h3>
+                            <p class="font-headline font-bold text-primary uppercase tracking-widest text-sm mb-2">Mo - Do</p>
                             <p class="text-xl font-headline font-medium">11:00 - 22:00</p>
                         </div>
                         <div>
-                            <h3 class="font-headline font-bold text-primary uppercase tracking-widest text-sm mb-2">Fr - Sa</h3>
+                            <p class="font-headline font-bold text-primary uppercase tracking-widest text-sm mb-2">Fr - Sa</p>
                             <p class="text-xl font-headline font-medium">11:00 - 23:00</p>
                         </div>
                         <div>
-                            <h3 class="font-headline font-bold text-primary uppercase tracking-widest text-sm mb-2">So</h3>
+                            <p class="font-headline font-bold text-primary uppercase tracking-widest text-sm mb-2">So</p>
                             <p class="text-xl font-headline font-medium">12:00 - 22:00</p>
                         </div>
                     </div>
@@ -323,7 +500,7 @@
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2530.824213601704!2d7.954546515865487!3d50.77209797951912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b97379f8c6ebf7%3A0xc4b38d3568c07e0b!2sHauptstra%C3%9Fe%2063%2C%2057562%20Herdorf!5e0!3m2!1sde!2sde!4v1700000000000!5m2!1sde!2sde"
                     width="100%"
                     height="100%"
-                    style="border:0;"
+                    style="border:0; filter: invert(90%) hue-rotate(180deg);"
                     allowfullscreen=""
                     loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade">
@@ -333,16 +510,16 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-[#0e0e0e] flex flex-col items-center gap-8 py-12 px-6 w-full text-center fade-in-section">
-        <div class="text-[#ff9159] font-black font-headline text-4xl tracking-tighter uppercase">SEMA DÖNER</div>
+    <footer class="bg-background flex flex-col items-center gap-8 py-12 px-6 w-full text-center fade-in-section">
+        <div class="text-primary font-black font-headline text-4xl tracking-tighter uppercase">SEMA DÖNER</div>
         <div class="flex gap-8">
-            <a class="text-gray-400 font-body text-xs tracking-tight hover:text-white transition-colors" href="#">IMPRESSUM</a>
-            <a class="text-gray-400 font-body text-xs tracking-tight hover:text-white transition-colors" href="#">DATENSCHUTZ</a>
-            <a class="text-gray-400 font-body text-xs tracking-tight hover:text-white transition-colors" href="#">INSTAGRAM</a>
+            <a class="text-on-surface-variant font-body text-xs tracking-tight hover:text-on-surface transition-colors" href="#">IMPRESSUM</a>
+            <a class="text-on-surface-variant font-body text-xs tracking-tight hover:text-on-surface transition-colors" href="#">DATENSCHUTZ</a>
+            <a class="text-on-surface-variant font-body text-xs tracking-tight hover:text-on-surface transition-colors" href="https://instagram.com/semadoener_musty" target="_blank" rel="noopener">INSTAGRAM</a>
         </div>
         <div class="space-y-2">
             <p class="text-on-surface font-headline font-bold text-xl tracking-tighter">Tel: 02744 931678</p>
-            <p class="text-gray-500 font-body text-xs tracking-tight">MADE WITH LOVE IN HERDORF © 2025 SEMA DÖNER</p>
+            <p class="text-on-surface-variant font-body text-xs tracking-tight">MADE WITH LOVE IN HERDORF © 2025 SEMA DÖNER</p>
         </div>
         <div class="flex gap-4">
             <a href="https://instagram.com/semadoener_musty" target="_blank" rel="noopener" aria-label="Instagram" class="text-primary hover:scale-110 transition-transform">
@@ -364,13 +541,13 @@
     </footer>
 
     <!-- BottomNavBar (Mobile only) -->
-    <nav id="bottom-nav" class="md:hidden fixed bottom-0 w-full z-40 bg-[#0e0e0e]/70 backdrop-blur-xl flex justify-around items-center h-20 pb-safe border-t border-white/5 translate-y-full transition-transform duration-300">
+    <nav id="bottom-nav" class="md:hidden fixed bottom-0 w-full max-w-[1440px] mx-auto right-0 left-0 z-40 bg-[#0e0e0e]/70 backdrop-blur-xl flex justify-around items-center h-20 pb-safe border-t border-white/5 translate-y-full transition-transform duration-300">
         <a href="#menu" class="flex flex-col items-center justify-center w-full h-full text-gray-500 hover:text-primary active:scale-90 transition-all duration-200 min-h-[44px] min-w-[44px]">
             <span class="material-symbols-outlined">restaurant_menu</span>
             <span class="font-body text-[10px] uppercase font-bold tracking-widest mt-1">MENU</span>
         </a>
         <a href="tel:02744931678" class="flex flex-col items-center justify-center w-full h-full text-primary scale-110 active:scale-90 transition-all duration-200 min-h-[44px] min-w-[44px]">
-            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-on-primary-fixed shadow-lg -translate-y-4 border-4 border-background">
+            <div class="w-12 h-12 bg-primary flex items-center justify-center text-on-primary-fixed shadow-lg -translate-y-4 border-4 border-background">
                 <span class="material-symbols-outlined text-2xl">call</span>
             </div>
             <span class="font-body text-[10px] uppercase font-bold tracking-widest -mt-2">ANRUFEN</span>
@@ -388,7 +565,7 @@
     </nav>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/492744931678" target="_blank" rel="noopener" aria-label="Chat auf WhatsApp" class="fixed bottom-8 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-[0_10px_20px_rgba(37,211,102,0.3)] hover:scale-110 transition-transform hidden md:flex items-center justify-center group">
+    <a href="https://wa.me/492744931678" target="_blank" rel="noopener" aria-label="Chat auf WhatsApp" class="fixed bottom-8 right-6 z-50 bg-[#25D366] text-white p-4 shadow-[0_8px_24px_rgba(37,211,102,0.25)] hover:bg-[#1fbd5a] transition-colors hidden md:flex items-center justify-center group">
         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
         </svg>
@@ -420,156 +597,6 @@
             });
 
 
-            // --- 2. Menu Logic and Rendering ---
-            const menuData = [
-                {
-                    category: "doener",
-                    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAsB6-C4rF3VZtdZYXhN9DFGTHis2uiBkxYVyvyXGDtiGZ8krleSZ8cw9DgDb286x85QV_si2oc-Zi6Szmac7VCJQTgLx7hjiiR-lcEL9ISyYOB_3U6ockB41Z6eSCPeKTTGb8tXtF2RwS0xgWlezjlYtpCTvktNGjwQk874IWejwxXqeRSIvWy8h5cAOHaxRtWh72He-7ICip1DvhDkfbcddoKp__nn_8z0g3TystSsDSwTKyKIOtaMlzbyBNAlC7QZFZjsefzJB8",
-                    alt: "D\u00f6ner sandwich",
-                    type: "image",
-                    title: "Klassik D\u00f6ner",
-                    description: "Kalbfleisch, Salat, Zwiebeln, Tomaten und Mustys Spezialsauce.",
-                    price: "7,50 \u20ac"
-                },
-                {
-                    category: "doener",
-                    icon: "kebab_dining",
-                    type: "icon",
-                    title: "Sema Teller",
-                    description: "Gro\u00dfe Portion Fleisch, Pommes oder Reis, Beilagensalat und Tzatziki.",
-                    price: "11,00 \u20ac"
-                },
-                {
-                    category: "doener",
-                    icon: "kebab_dining",
-                    type: "icon",
-                    title: "D\u00f6ner Box",
-                    description: "Fleisch nach Wahl, Pommes und Sauce in der praktischen Box.",
-                    price: "6,50 \u20ac"
-                },
-                {
-                    category: "duerum",
-                    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCntW-qZHCa2FLOZ_wLdK-TtcOBd9TBau0lIYm_DWSo0uJLOUHNgAlyfqLRt-PhXdjmrXBXYoy3xpnmZIncvBbnm7Ov3T0yXFgHWmuf-4NHCAhJlo-Tujg3oUUZFgoXPFeStOxvIP3uc4DBVpmLJ8jaVuVuIW8zaV-YL0otslMElXTHes-W9XOomPZM0U_N5yrZkGdmYf1xKHIJy2bPETYgaJInqmEgb0_JD29p7q8r1qXYmVkcKmFcb8xwsWNctfSED4E6k64DQe8",
-                    alt: "Large D\u00fcr\u00fcm wrap",
-                    type: "image",
-                    title: "Big D\u00fcr\u00fcm",
-                    description: "Extra viel Fleisch, d\u00fcnnes Fladenbrot, doppelt Sauce.",
-                    price: "8,50 \u20ac"
-                },
-                {
-                    category: "duerum",
-                    icon: "bakery_dining",
-                    type: "icon",
-                    title: "Lahmacun",
-                    description: "T\u00fcrkische Pizza mit Fleisch, Salat und Spezialsauce gerollt.",
-                    price: "8,00 \u20ac"
-                },
-                {
-                    category: "chili-cheese",
-                    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAUsOIXEYln3K9YRKr3YJJl20Mqd6R8HRMPbjXywyBRDdmDJ99UNAzOwvc-aoGcMMspJckiP6jv3UeU3oCwqX9SrzsAwp6qqQ2bSNPIUFjuhQjo5ZaBywxXcdF82Zqm8W9Y7J3r4MaJmH_pBFuZ4FnNsF224jzrIaItLfHS0nJJbTI5Smc_LVwYE7qOeXqYl1WevXvoi1i-E-TeodTmAfBZhVoafvJcSH9eYEzGOy2i0_L5PNrryT4hJsp2bbCr09CTDAp_Z4zEZ_0",
-                    alt: "D\u00f6ner meat topped with melted chili cheese sauce",
-                    type: "image",
-                    title: "Chili Cheese Box",
-                    description: "Pommes, Fleisch und unsere legend\u00e4re Chili-Cheese Sauce.",
-                    price: "9,00 \u20ac"
-                },
-                {
-                    category: "chili-cheese",
-                    icon: "local_pizza",
-                    type: "icon",
-                    title: "Chili Cheese D\u00fcr\u00fcm",
-                    description: "D\u00fcr\u00fcm gef\u00fcllt mit Fleisch, Jalape\u00f1os und fl\u00fcssigem Chili Cheese.",
-                    price: "9,50 \u20ac"
-                },
-                {
-                    category: "vegetarisch",
-                    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuC0KCcf1Tp7hCjc_O5arj7GlNscs_LvVOxiMzUTY1pIaG2tzOm1X_XTnZAzNQRw90kNZwkvMOhtRIUo2E0dfzdIge1-wB_fOF-yrvJlyJB_DTTYgKP9ALS8AZ4_L4dWRhAXjv5Q5LrEi94lQckTBWvMWMWjrsOce_tLJ3ytatmEi5CuBpulstl7vXueQB527SPw-U8jOqIjZRoVYFpw8kOhJ0lNrLvVHcpG80EIgQ4oI1f7vM60e2MIWb4Kar3H8XRbw1vuPmxq1nA",
-                    alt: "Falafel wrap",
-                    type: "image",
-                    title: "Veggi D\u00f6ner",
-                    description: "Hausgemachter Halloumi, Grillgem\u00fcse und Joghurt-Minz Sauce.",
-                    price: "7,00 \u20ac"
-                },
-                {
-                    category: "vegetarisch",
-                    icon: "eco",
-                    type: "icon",
-                    title: "Falafel D\u00fcr\u00fcm",
-                    description: "Knusprige Falafel, frischer Salat und Hummus im d\u00fcnnen Fladenbrot.",
-                    price: "7,50 \u20ac"
-                },
-                {
-                    category: "getraenke",
-                    icon: "local_drink",
-                    type: "icon",
-                    title: "Softdrinks",
-                    description: "Cola, Fanta, Sprite, Ayran, Wasser",
-                    price: "2,50 \u20ac"
-                }
-            ];
-
-            const menuGridContainer = document.getElementById('menu-grid');
-
-            menuData.forEach(itemData => {
-                const itemDiv = document.createElement('div');
-                itemDiv.className = 'menu-item flex bg-surface-container group cursor-pointer hover:-translate-y-2 hover:shadow-2xl hover:bg-surface-container-high transition-all duration-300';
-                itemDiv.setAttribute('data-category', itemData.category);
-
-                const mediaDiv = document.createElement('div');
-                mediaDiv.className = 'w-32 h-32 md:w-48 md:h-48 flex-shrink-0';
-
-                if (itemData.type === 'image') {
-                    const img = document.createElement('img');
-                    img.setAttribute('loading', 'lazy');
-                    img.className = 'w-full h-full object-cover';
-                    img.setAttribute('alt', itemData.alt);
-                    img.setAttribute('width', '400');
-                    img.setAttribute('height', '400');
-                    img.setAttribute('sizes', '(max-width: 768px) 128px, 192px');
-                    img.setAttribute('srcset', itemData.image + '=w200 200w, ' + itemData.image + '=w400 400w');
-                    img.setAttribute('src', itemData.image + '=w400');
-                    mediaDiv.appendChild(img);
-                } else if (itemData.type === 'icon') {
-                    mediaDiv.classList.add('bg-surface-container-high', 'flex', 'items-center', 'justify-center');
-                    const iconSpan = document.createElement('span');
-                    if (itemData.category === 'getraenke') {
-                        iconSpan.className = 'material-symbols-outlined text-4xl text-on-surface-variant';
-                    } else {
-                        iconSpan.className = 'material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors';
-                    }
-                    iconSpan.textContent = itemData.icon;
-                    mediaDiv.appendChild(iconSpan);
-                }
-
-                itemDiv.appendChild(mediaDiv);
-
-                const textContentDiv = document.createElement('div');
-                textContentDiv.className = 'p-6 flex flex-col justify-between w-full';
-
-                // Add title container to match original structure exactly
-                const titleContainer = document.createElement('div');
-
-                const titleH3 = document.createElement('h3'); // ensure heading hierarchy starts with h3 for cards
-                titleH3.className = 'font-headline font-bold text-2xl uppercase tracking-tighter group-hover:text-primary transition-colors';
-                titleH3.textContent = itemData.title;
-                titleContainer.appendChild(titleH3);
-
-                const descP = document.createElement('p');
-                descP.className = 'text-on-surface-variant font-body text-sm mt-2 line-clamp-2';
-                descP.textContent = itemData.description;
-                titleContainer.appendChild(descP);
-
-                textContentDiv.appendChild(titleContainer);
-
-                const priceSpan = document.createElement('span');
-                priceSpan.className = 'font-headline font-black text-2xl text-primary mt-4';
-                priceSpan.textContent = itemData.price;
-                textContentDiv.appendChild(priceSpan);
-
-                itemDiv.appendChild(textContentDiv);
-                menuGridContainer.appendChild(itemDiv);
-            });
-
             // --- 2. Menu Filtering Logic ---
             const tabs = document.querySelectorAll('.menu-tab');
             const items = document.querySelectorAll('.menu-item');
@@ -577,13 +604,15 @@
 
             tabs.forEach(tab => {
                 tab.addEventListener('click', () => {
-                    // Update active tab styling
+                    // Update active tab styling and aria-pressed state
                     tabs.forEach(t => {
                         t.classList.remove('bg-primary', 'text-on-primary-fixed');
-                        t.classList.add('bg-surface-container', 'text-on-surface', 'hover:bg-surface-container-high');
+                        t.classList.add('bg-surface-container', 'text-on-surface');
+                        t.setAttribute('aria-pressed', 'false');
                     });
-                    tab.classList.remove('bg-surface-container', 'text-on-surface', 'hover:bg-surface-container-high');
+                    tab.classList.remove('bg-surface-container', 'text-on-surface');
                     tab.classList.add('bg-primary', 'text-on-primary-fixed');
+                    tab.setAttribute('aria-pressed', 'true');
 
                     const filterValue = tab.getAttribute('data-filter');
 
@@ -675,18 +704,47 @@
                 mobileMenu.classList.remove('-translate-x-full');
                 mobileMenuOverlay.classList.remove('opacity-0', 'pointer-events-none');
                 document.body.style.overflow = 'hidden';
+                mobileMenuBtn.setAttribute('aria-expanded', 'true');
+                // Move focus into menu
+                setTimeout(() => mobileMenuClose && mobileMenuClose.focus(), 300);
             }
 
             function closeMobileMenu() {
                 mobileMenu.classList.add('-translate-x-full');
                 mobileMenuOverlay.classList.add('opacity-0', 'pointer-events-none');
                 document.body.style.overflow = '';
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                mobileMenuBtn.focus();
+            }
+
+            // Focus trap for mobile menu
+            function trapFocus(e) {
+                if (!mobileMenu.contains(document.activeElement)) return;
+                const focusable = mobileMenu.querySelectorAll('a[href], button:not([disabled])');
+                const first = focusable[0];
+                const last = focusable[focusable.length - 1];
+                if (e.key === 'Tab') {
+                    if (e.shiftKey && document.activeElement === first) {
+                        e.preventDefault();
+                        last.focus();
+                    } else if (!e.shiftKey && document.activeElement === last) {
+                        e.preventDefault();
+                        first.focus();
+                    }
+                }
+                if (e.key === 'Escape') closeMobileMenu();
             }
 
             if (mobileMenuBtn && mobileMenuClose && mobileMenu && mobileMenuOverlay) {
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                mobileMenuBtn.setAttribute('aria-controls', 'mobile-menu');
+                mobileMenu.setAttribute('role', 'dialog');
+                mobileMenu.setAttribute('aria-modal', 'true');
+                mobileMenu.setAttribute('aria-label', 'Navigationsmenü');
                 mobileMenuBtn.addEventListener('click', openMobileMenu);
                 mobileMenuClose.addEventListener('click', closeMobileMenu);
                 mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+                document.addEventListener('keydown', trapFocus);
 
                 mobileNavLinks.forEach(link => {
                     link.addEventListener('click', closeMobileMenu);
@@ -705,27 +763,27 @@
                     hour12: false,
                     weekday: 'short'
                 });
-
+                
                 const parts = formatter.formatToParts(now);
                 let hourStr = '0', minuteStr = '0', dayStr = 'Mon';
-
+                
                 parts.forEach(part => {
                     if (part.type === 'hour') hourStr = part.value;
                     if (part.type === 'minute') minuteStr = part.value;
                     if (part.type === 'weekday') dayStr = part.value;
                 });
-
+                
                 const currentHour = parseInt(hourStr, 10);
                 const currentMinute = parseInt(minuteStr, 10);
                 const timeInMinutes = currentHour * 60 + currentMinute;
-
+                
                 // Mo-Do: 11:00 - 22:00 (660 - 1320)
                 // Fr-Sa: 11:00 - 23:00 (660 - 1380)
                 // So: 12:00 - 22:00 (720 - 1320)
-
+                
                 let isOpen = false;
                 let opensAt = "11:00";
-
+                
                 if (['Mon', 'Tue', 'Wed', 'Thu'].includes(dayStr)) {
                     isOpen = timeInMinutes >= 660 && timeInMinutes < 1320;
                     opensAt = "11:00";
@@ -739,12 +797,12 @@
 
                 const desktopBadge = document.getElementById('status-badge');
                 const mobileBadge = document.getElementById('mobile-status-badge');
-
+                
                 function applyStatus(badge) {
                     if (!badge) return;
                     const dot = badge.querySelector('.status-dot');
                     const text = badge.querySelector('.status-text');
-
+                    
                     if (isOpen) {
                         dot.className = "status-dot w-2 h-2 rounded-full bg-green-500 animate-pulse";
                         text.textContent = "Geöffnet";
@@ -761,7 +819,7 @@
                 applyStatus(desktopBadge);
                 applyStatus(mobileBadge);
             }
-
+            
             updateStatusBadge();
             setInterval(updateStatusBadge, 60000); // Update every minute
 
@@ -788,14 +846,14 @@
                         const { left, top, width, height } = heroSection.getBoundingClientRect();
                         const x = (e.clientX - left) / width;
                         const y = (e.clientY - top) / height;
-
+                        
                         // Limit to small rotation degrees
                         const rotateX = (y - 0.5) * -4;
                         const rotateY = (x - 0.5) * 4;
-
+                        
                         heroImg.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
                     });
-
+                    
                     heroSection.addEventListener('mouseleave', () => {
                         heroImg.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
                         heroImg.style.transition = 'transform 0.5s ease-out';
@@ -816,11 +874,9 @@
             // Duplicate the marquee content for seamless infinite scrolling if screen is wide
             const marqueeContent = document.querySelector('.marquee-content');
             if(marqueeContent) {
-                const content = marqueeContent.textContent;
-                marqueeContent.textContent = content + "\u00A0" + content;
+                 marqueeContent.innerHTML += "&nbsp;" + marqueeContent.innerHTML;
             }
         });
     </script>
-</div>
 </body>
 </html>
